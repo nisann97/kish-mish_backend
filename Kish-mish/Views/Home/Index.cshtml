@@ -1,0 +1,344 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/assets/css/home.css" />
+}
+
+<main>
+
+    <!-- slider starts -->
+
+    <section id="slider-area">
+        <div class="container">
+            <div class="slider">
+                <div class="icons">
+                    <i class="fa-solid fa-chevron-left left-icon"></i>
+                    <i class="fa-solid fa-chevron-right right-icon"></i>
+                </div>
+                <div class="images">
+                    <img src="~/assets/images/slider2.png" class="active-image">
+                    <img src="~/assets/images/slider1.png">
+                    <img src="~/assets/images/slider4.png">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- slider ends -->
+    <!-- PRODUCTS START -->
+
+    <section id="products">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-12 d-flex justify-content-between">
+                    <ul class="category-mobile d-md-none list-unstyled">
+                        <li>
+                            <a href="" class="categories mr-2">Categories</a>
+                            <i class="fas fa-caret-down"></i>
+                            <ul class="categories list-unstyled" style="display: none;">
+                                <li><a href="" data-id="popular">Çərəzlər</a></li>
+                                <li><a href="" data-id="winter">Şokoladlar</a></li>
+                                <li><a href="" data-id="various">Meyvə quruları</a></li>
+                                <li><a href="" data-id="exotic">Duzlu təamlar</a></li>
+                                <li><a href="" data-id="green">Kish-Mish qutuları</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="category d-none d-md-flex list-unstyled">
+                        <li><a href="" data-id="popular">Çərəzlər</a></li>
+                        <li><a href="" data-id="winter">Şokoladlar</a></li>
+                        <li><a href="" data-id="various">Meyvə quruları</a></li>
+                        <li><a href="" data-id="exotic">Duzlu təamlar</a></li>
+                        <li><a href="" data-id="green">Kish-Mish qutuları</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="popular">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/slider4.png" class="img-fluid" alt="">
+                            </a>
+                            <div class="product-action">
+                                <ul>
+                                    <li>
+                                        <a href="" class="add-to-cart">
+                                            <img src="~/assets/images/add-to-cart.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="product-details" data-bs-toggle="modal" data-bs-target="#id1">
+                                            <img src="~/assets/images/quick-view.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="add-to-wishlist">
+                                            <img src="~/assets/images/add-to-wishlist.svg" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Altın Çilek</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">10,65 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="popular">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/Bitter-Sokoladli-Duble-Lokum-scaled.jpg" class="img-fluid"
+                                     alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Bitter Şokoladlı Duble Lokum</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">9,40 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="winter">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/slider3.png" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Badamlı Pralin</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">10,20 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="winter">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/ALMA QURUSU DARÇINLI.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Alma Qurusu Darçınlı</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">2,10 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="various">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/Natural-Ananas-Qurusu.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Natural Ananas Qurusu</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">12,50 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="various">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/Franbuazli-Trufel.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Franbuazlı Trufel</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">9,30 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="exotic">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/Findiqli-Trufel.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>Fındıqlı Trufel</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">9,30 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                    <div class="product-item text-center" data-id="exotic">
+                        <div class="img">
+                            <a href="">
+                                <img src="~/assets/images/Kvadrat-Taxta-Qutu-1300x1300.jpg" class="img-fluid"
+                                     alt="">
+                            </a>
+                        </div>
+                        <div class="title mt-3">
+                            <h6>KVADRAT TAXTA QUTU</h6>
+                        </div>
+                        <div class="price">
+                            <span class="text-black-50">Add to cart</span>
+                            <span class="text-black-50">416,00 ₼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="show-btn mt-5">
+                    <button>Daha çox</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS END -->
+    <!-- Customer Review START -->
+    <section id="customer-review">
+        <div class="container">
+            <div class="indicator">
+                <span class="btn active"></span>
+                <span class="btn"></span>
+                <span class="btn"></span>
+                <span class="btn"></span>
+            </div>
+            <div class="testimonial">
+                <div class="row testimonials" id="slide-row">
+                    <div class="col-12 item">
+                        <div class="content-testimonial">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis tenetur ipsa ut.
+                                Esse asperiores quisquam quos blanditiis quaerat voluptatum. Voluptatum assumenda
+                                impedit culpa ipsam. Ea, sequi. Perferendis laborum nisi iure.
+                            </p>
+                            <h2>Nisa</h2>
+                            <p>Customer</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/assets/images/instagram7.jpeg">
+                        </div>
+                    </div>
+                    <div class="col-12 item">
+                        <div class="content-testimonial">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis tenetur ipsa ut.
+                                Esse asperiores quisquam quos blanditiis quaerat voluptatum. Voluptatum assumenda
+                                impedit culpa ipsam. Ea, sequi. Perferendis laborum nisi iure.
+                            </p>
+                            <h2>Rufana</h2>
+                            <p>Customer</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/assets/images/instagram8.jpeg">
+                        </div>
+                    </div>
+                    <div class="col-12 item">
+                        <div class="content-testimonial">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis tenetur ipsa ut.
+                                Esse asperiores quisquam quos blanditiis quaerat voluptatum. Voluptatum assumenda
+                                impedit culpa ipsam. Ea, sequi. Perferendis laborum nisi iure.
+                            </p>
+                            <h2>Alihuseyn</h2>
+                            <p>Customer</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/assets/images/instagram10.jpeg">
+                        </div>
+                    </div>
+                    <div class="col-12 item">
+                        <div class="content-testimonial">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis tenetur ipsa ut.
+                                Esse asperiores quisquam quos blanditiis quaerat voluptatum. Voluptatum assumenda
+                                impedit culpa ipsam. Ea, sequi. Perferendis laborum nisi iure.
+                            </p>
+                            <h2>Yegana</h2>
+                            <p>Customer</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/assets/images/instagram12.jpeg">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+    <!-- About START -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <h2>Kish-Mish hekayəmiz</h2>
+                        <div class="content-text">
+                            <p>
+                                Kish-Mish is one of the newest family-owned and operated sweets entreprise in
+                                Azerbaijan. It has been making taffy, milk chocolate and dark chocolate orange
+                                sticks, and cinnamon bears for 1 year. Additionally, Kish-Mish makes an array of
+                                gourmet chocolate candies, holiday candy, sugar free candy, and nostalgic candy - an
+                                assortment ranging from chocolate covered peanut clusters to marshmallow Easter eggs
+                                and jelly beans.
+                            </p>
+                            <a class="about-btn" href="">Hekayəmizi oxu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About END -->
+    <!-- Instagram START -->
+    <section id="instagram">
+        <div class="owl-carousel instagram">
+            <div class="item"><img src="~/assets/images/instagram2.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram3.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram12.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram4.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram5.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instragram6.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram9.jpeg" class="img-fluid" alt=""></div>
+            <div class="item"><img src="~/assets/images/instagram10.jpeg" class="img-fluid" alt=""></div>
+        </div>
+
+
+    </section>
+    <!-- Instagram END -->
+
+
+
+
+
+
+</main>

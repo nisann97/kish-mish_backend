@@ -1,0 +1,131 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: Lato-light;
+    src: url(../fonts/Lato-Light.ttf);
+  }
+  
+  
+  @font-face {
+    font-family: Lato-regular;
+    src: url(../fonts/Lato-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-VariableFont_wght.ttf);
+  }
+  
+  @font-face {
+    font-family: Marcellus;
+    src: url(../fonts/Marcellus-Regular.ttf);
+  }
+  
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #header-top .logo {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+  }
+  
+  #header-top .logo img {
+    width: 45%;
+  }
+
+
+
+.icon-close {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    height: 50px;
+    width: 50px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+    .icon-close i {
+        color: #fff;
+        font-size: 25px;
+    }
+
+.box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8 );
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: 0.5s;
+    z-index: 1;
+}
+
+    .box.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+.form-area {
+    width: 100%;
+    max-width: 800px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    display: flex;
+    border-bottom: 1px solid #0c0505;
+}
+
+    .form-area input {
+        flex: 1 1 auto;
+        background-color: transparent;
+        border: 0;
+        height: 40px;
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .form-area button {
+        background: crimson;
+        padding: 0 10px;
+        border: none;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .form-area input:placeholder {
+        color: #fff;
+        letter-spacing: 3px;
+    }

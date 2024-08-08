@@ -1,0 +1,48 @@
+﻿@model RegisterVM
+
+@section css {
+    <link rel="stylesheet" href="~/assets/css/register.css" />
+}
+
+
+<main>
+    <section id="login-area" style="background-image: url('/assets/images/login-background.jpg'); height: 1400px">
+        <div class="wrapper">
+            <form method="post" asp-action="Register">
+                <h1>Yeni hesab yarat</h1>
+                <div class="text-danger errors" asp-validation-summary="ModelOnly"></div>
+                <div class="input-box">
+                    <input asp-for="UserName" type="text" id="Username" placeholder="İstifadəçi adı">
+                    <span class="text-danger" asp-validation-for="UserName"></span>
+                </div>
+                <div class="input-box">
+                    <input asp-for="FullName" type="text" placeholder="Ad və soyad">
+                    <span class="text-danger" asp-validation-for="FullName"></span>
+
+                </div>
+                <div class="input-box">
+                    <input asp-for="Email" type="text" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+
+                </div>
+                <div class="input-box">
+                    <input asp-for="Password" type="password" placeholder="Şifrə">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                    <div class="input-box">
+                        <input asp-for="ConfirmPassword" type="password" placeholder="Şifrəni təsdiqləyin">
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+
+                    </div>
+                    <div class="remember-forgot">
+                        <label for=""><input type="checkbox">Xatırla</label>
+                        <a href="#">Şifrəni unutmusunuz?</a>
+                    </div>
+                    <button type="submit" class="btn">Qeydiyyatdan keç</button>
+                    <div class="register-link">
+                        <p>Hesabınız var? <a asp-controller="Account" asp-action="Login">Daxil ol</a></p>
+                    </div>
+</form>
+        </div>
+    </section>
+</main>

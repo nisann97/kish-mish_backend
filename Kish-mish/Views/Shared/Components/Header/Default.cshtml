@@ -1,0 +1,110 @@
+﻿@model HeaderVM
+
+<header>
+    <section id="header-top">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-lg-12 col-sm-12">
+                    <div class="logo">
+                        <a href=""><img src="~/assets/images/@Model.Settings["HeaderLogo"]"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- navbar starts -->
+    <section id="navbar-area" class="d-none d-sm-block">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-light  navbar-expand-xl">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="col-6 col-lg-6 col-sm-6">
+                            <div class="navbar-nav mx-auto">
+                                <a asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Əsas</a>
+                                <a asp-controller="About" asp-action="Index"  class="nav-item nav-link">Haqqımızda</a>
+                                <div class="nav-item products-dropdown">
+                                    <a asp-controller="Shop" asp-action="Index"  class="nav-link product-dropdown dropdown-toggle"
+                                       data-bs-toggle="dropdown">Məhsullar</a>
+                                    <div class="dropdown-menu">
+                                        <ul class="submenu">
+                                            <li><a href="">Çərəzlər</a></li>
+                                            <li><a href="shop.html">Şokoladlar</a></li>
+                                            <li><a href="shop.html">Meyvə quruları</a></li>
+                                            <li><a href="">Duzlu təamlar</a></li>
+                                            <li><a href="shop.html">Kish-Mish qutuları</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <a asp-controller="Blog" asp-action="Index" class="nav-item nav-link">Bloq</a>
+
+                                <a asp-controller="Contact" asp-action="Index" class="nav-item nav-link">Əlaqə</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-6">
+                            <div class="account">
+                                <div class="d-flex m-3 me-0">
+                                    <div class="container">
+                                        <div class="icon-search">
+                                            <i class="fas fa-search text-primary"></i>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="position-relative me-4 my-auto">
+                                        <i class="fa-regular fa-heart"></i>
+                                        <span class="heart position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center px-1"
+                                              style="top: -5px; left: 29px; height: 20px; min-width: 20px;">0</span>
+                                    </a>
+                                     <div class="user">
+                                            <a href="#" class="my-auto">
+                                                <i class="fa-regular fa-user"></i>
+                                            </a>
+                                            <div class="dropdown-menu" style="max-width: 50px;">
+                                                <ul class="submenu">
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li><a style="font-size: 14px;">@Model.UserFullName</a></li>
+                                                        <li>
+                                                    <form asp-controller="Account" asp-action="Logout">
+                                                        <button type="submit" style=" width: 58px; margin-left: -20px; border: none; outline: none; background: none;">Çıxış</button>
+                                                        </form>
+                                                        </li>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a asp-controller="Account" asp-action="Login">Daxil ol</a></li>
+                                                        <li><a asp-controller="Account" asp-action="Register">Qeydiyyatdan keç</a></li>
+
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="navbar-mobile" <!-- navbar ends -->
+    <div class="box">
+            <div class="icon-close">
+                <i class="fa fa-times"></i>
+            </div>
+            <form action="" class="form-area">
+                <input type="text" placeholder="Açar sözü daxil edin">
+                <button>Axtarın</button>
+            </form>
+        </div>
+    </section>
+</header>
