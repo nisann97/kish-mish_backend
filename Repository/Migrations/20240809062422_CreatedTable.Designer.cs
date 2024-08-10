@@ -12,8 +12,8 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240807114055_CreatedUserTable")]
-    partial class CreatedUserTable
+    [Migration("20240809062422_CreatedTable")]
+    partial class CreatedTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

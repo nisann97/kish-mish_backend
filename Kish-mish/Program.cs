@@ -37,7 +37,7 @@ builder.Services.AddScoped<ISettingService, SettingService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Smpt"));
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Smtp"));
 
 var app = builder.Build();
 

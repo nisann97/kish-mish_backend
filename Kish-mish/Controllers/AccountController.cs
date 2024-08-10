@@ -79,7 +79,7 @@ namespace Kish_mish.Controllers
             html = html.Replace("{link}", url);
             html = html.Replace("{Username}", newUser.FullName);
 
-            string subject = "Email confirmation";
+            string subject = "Emailinizi təsdiqləyin";
 
             SendEmail(newUser.Email, subject, html);
 
@@ -100,9 +100,8 @@ namespace Kish_mish.Controllers
         {
             var user = await _userManager.FindByIdAsync(userId);
             await _userManager.ConfirmEmailAsync(user, token);
-            return RedirectToAction(nameof(SignIn));
+            return RedirectToAction(nameof(Login));
         }
-
 
         public void SendEmail(string to, string subject, string html, string from = null)
         {
@@ -112,13 +111,13 @@ namespace Kish_mish.Controllers
             email.To.Add(MailboxAddress.Parse(to));
             email.Subject = subject;
             email.Body = new TextPart(TextFormat.Html) { Text = html };
+
             // send email
             using var smtp = new SmtpClient();
             smtp.Connect(_appSettings.Server, _appSettings.Port, SecureSocketOptions.StartTls);
             smtp.Authenticate(_appSettings.Username, _appSettings.Password);
             smtp.Send(email);
             smtp.Disconnect(true);
-
         }
 
         [HttpGet]
