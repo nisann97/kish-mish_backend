@@ -169,6 +169,76 @@ namespace Kish_mish.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPassword)
+        {
+            if (!ModelState.IsValid) return View();
+
+            AppUser existUser = await _userManager.FindByEmailAsync(forgotPassword.Email);
+            if (existUser is null)
+            {
+                ModelState.AddModelError("Email", "İstifadəçi adı tapılmadı");
+                return View(); 
+            }
+
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(existUser);
+            string url = Url.Action(nameof(ResetPassword), "Account", new { userId = existUser.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            string html = string.Empty;
+
+            using (StreamReader reader = new("wwwroot/assets/templates/emailconfirmation.html"))
+            {
+                html = await reader.ReadToEndAsync();
+            }
+
+            html = html.Replace("{link}", url);
+            html = html.Replace("{Username}", existUser.FullName);
+
+            string subject = "Şifrənizi bərpa edin";
+
+            SendEmail(existUser.Email, subject, html);
+            return RedirectToAction(nameof(VerifyEmail));
+        }
+
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            return View(new ResetPasswordVM { Token = token, UserId = userId });
+            
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPassword)
+        {
+            if (!ModelState.IsValid) return View(resetPassword);
+            AppUser existUser = await _userManager.FindByIdAsync(resetPassword.UserId);
+            if (existUser is null) return NotFound();
+
+            if (await _userManager.CheckPasswordAsync(existUser, resetPassword.Password))
+            {
+                
+                    ModelState.AddModelError("", "Yeni şifrə əvvəlki şifrəniz ilə eyni olmamalıdır");
+                return View(resetPassword);
+            }
+
+            await _userManager.ResetPasswordAsync(existUser, resetPassword.Token, resetPassword.Password);
+
+            return RedirectToAction(nameof(Login));
+
+        }
+
+
         //    [HttpGet]
         //    public async Task<IActionResult> CreateRoles()
         //    {
