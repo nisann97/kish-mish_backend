@@ -5,7 +5,7 @@ namespace Domain.Entities
 {
 	public class Slider : BaseEntity
 	{
-        public string SliderImage { get; set; }
+        public string Image { get; set; }
     }
 }
 

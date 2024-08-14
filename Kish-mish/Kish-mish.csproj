@@ -21,6 +21,16 @@
     <None Remove="ViewModels\Account\" />
     <None Remove="Helpers\" />
     <None Remove="Helpers\Extensions\" />
+    <None Remove="Views\Shop\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Views\Dashboard\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\Slider\" />
+    <None Remove="Areas\Admin\ViewModels\" />
+    <None Remove="Areas\Admin\ViewModels\Slider\" />
+    <None Remove="Helpers\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -37,6 +47,16 @@
     <Folder Include="Helpers\" />
     <Folder Include="Helpers\Extensions\" />
     <Folder Include="wwwroot\assets\templates\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Slider\" />
+    <Folder Include="Areas\Admin\ViewModels\" />
+    <Folder Include="Areas\Admin\ViewModels\Slider\" />
+    <Folder Include="Helpers\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">

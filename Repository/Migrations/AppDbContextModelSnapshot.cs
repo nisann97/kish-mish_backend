@@ -132,7 +132,7 @@ namespace Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("SliderImage")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -142,6 +142,26 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Image = "slider2.png",
+                            SoftDeleted = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Image = "slider1.png",
+                            SoftDeleted = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Image = "slider4.png",
+                            SoftDeleted = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

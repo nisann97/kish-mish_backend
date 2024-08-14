@@ -1,22 +1,49 @@
 ﻿using System.Diagnostics;
+using Kish_mish.ViewModels.User;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services.Interfaces;
 
 namespace Kish_mish.Controllers;
 
 public class HomeController : Controller
 {
-    
+    private readonly ISliderService _sliderService;
 
-    public IActionResult Index()
+    public HomeController(ISliderService sliderService)
     {
-        return View();
+        _sliderService = sliderService;
+
     }
 
-    public IActionResult Privacy()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        //var categories = await _categoryService.GetAll();
+        //var products = await _productService.GetAll();
+        var sliders = await _sliderService.GetAll();
+        //var features = await _featureService.GetAll();
+        //var ads = await _adService.GetAll();
+        //var banners = await _bannerService.GetAll();
+        //var vegetables = await _productService.GetVegetables();
+        //var bestSellers = await _productService.GetBestSellerProducts();
+        //var comments = await _commentService.GetAll();
+        //var statistics = await _statisticService.GetAll();
+
+        HomeVM model = new()
+        {
+            //Categories = categories,
+            //Products = products,
+            Sliders = sliders,
+            //SliderInfo = sliderInfos.FirstOrDefault(),
+            //Features = features,
+            //Ads = ads,
+            //Vegetables = vegetables,
+            //Banner = banners.FirstOrDefault(),
+            //BestSellers = bestSellers,
+            //Comments = comments,
+            //Statistics = statistics,
+        };
+
+        return View(model);
     }
-
-
 }
 

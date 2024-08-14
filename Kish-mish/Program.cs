@@ -33,6 +33,7 @@ builder.Services.Configure<IdentityOptions>(opt =>
 
 builder.Services.AddRepositoryLayer();
 builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<ISliderService, SliderService>();
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -65,6 +66,12 @@ app.UseAuthorization();
 //      pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
 //    );
 //});
+
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+);
+
 
 app.MapControllerRoute(
     name: "default",

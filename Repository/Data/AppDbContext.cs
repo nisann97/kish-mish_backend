@@ -17,6 +17,7 @@ namespace Repository.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Setting>().HasQueryFilter(x => !x.SoftDeleted);
+            modelBuilder.Entity<Slider>().HasQueryFilter(x => !x.SoftDeleted);
 
             modelBuilder.Entity<Setting>()
                      .HasData(
@@ -27,6 +28,30 @@ namespace Repository.Data
             Value = "kish_mish-logo.png"
         }
         );
+            modelBuilder.Entity<Slider>()
+                       .HasData(
+          new Slider
+          {
+              Id = 1,
+              Image = "slider2.png",
+
+          },
+
+          new Slider
+          {
+              Id = 2,
+              Image = "slider1.png",
+
+          },
+
+            new Slider
+            {
+                Id = 3,
+                Image = "slider4.png",
+
+            }
+
+          );
             //new Setting
             //{
             //    Id = 2,

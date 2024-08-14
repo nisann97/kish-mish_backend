@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="~/admin/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+
+    <!-- Bootstrap CSS-->
+    <link href="~/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="~/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/admin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    @RenderSection("css", false)
+    <!-- Main CSS-->
+    <link href="~/admin/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a asp-controller="Dashboard" asp-action="Index">
+                    <img src="~/assets/images/kish_mish-logo.png" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Pages
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Slider" asp-action="Index">Slider</a>
+                                </li>
+                           
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="User" asp-action="Index">Users</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Banner" asp-action="Index">Banner</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="ComplaintSuggest" asp-action="Index">Complaints & Suggests</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Feature" asp-action="Index">Features</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Setting" asp-action="Index">Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Advertisement" asp-action="Index">Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Comment" asp-action="Index">Comments</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Statistic" asp-action="Index">Statistics</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Admin" asp-controller="Subscriber" asp-action="Index">Subscribers</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container" style="background-color: #c28a9224 !important">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                <img class="img-xs rounded-circle" src="~/admin/src/assets/images/grinch.jpeg" alt="Profile image">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                                <div class="dropdown-header text-center">
+                                    <img class="img-md rounded-circle" src="~/admin/src/assets/images/grinch.jpeg" alt="Profile image">
+                                    <p class="mb-1 mt-3 font-weight-semibold">The Grinch</p>
+                                    <p class="font-weight-light text-muted mb-0">grinch@gmail.com</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="~/admin/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/admin/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="~/admin/vendor/slick/slick.min.js"></script>
+    @RenderSection("js", required: false)
+    <script src="~/admin/vendor/wow/wow.min.js"></script>
+    <script src="~/admin/vendor/animsition/animsition.min.js"></script>
+    <script src="~/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/admin/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/admin/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/admin/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/admin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/admin/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/admin/vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/admin/js/main.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->

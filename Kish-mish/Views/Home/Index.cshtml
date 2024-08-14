@@ -1,4 +1,7 @@
-﻿@{
+﻿@model HomeVM
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -18,9 +21,22 @@
                     <i class="fa-solid fa-chevron-right right-icon"></i>
                 </div>
                 <div class="images">
-                    <img src="~/assets/images/slider2.png" class="active-image">
-                    <img src="~/assets/images/slider1.png">
-                    <img src="~/assets/images/slider4.png">
+
+                    @foreach (var item in Model.Sliders)
+                    {
+                        string active = "active-image";
+
+                        if (item != Model.Sliders.FirstOrDefault())
+                        {
+                            active = "";
+                        }
+
+
+                        <img src="~/assets/images/@item.Image" class="@active">
+                    }
+
+                    @*<img src="~/assets/images/slider1.png">
+            <img src="~/assets/images/slider4.png">*@
                 </div>
 
             </div>
