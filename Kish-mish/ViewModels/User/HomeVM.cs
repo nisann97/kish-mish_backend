@@ -7,8 +7,8 @@ namespace Kish_mish.ViewModels.User
 {
 	public class HomeVM
 	{
-        //public List<Category> Categories { get; set; }
-        //public List<Product> Products { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Product> Products { get; set; }
         public List<Slider> Sliders { get; set; }
         //public List<Product> Vegetables { get; set; }
         //public List<Product> BestSellers { get; set; }

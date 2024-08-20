@@ -31,6 +31,8 @@
     <None Remove="Areas\Admin\ViewModels\" />
     <None Remove="Areas\Admin\ViewModels\Slider\" />
     <None Remove="Helpers\Enums\" />
+    <None Remove="Areas\Admin\Views\User\" />
+    <None Remove="Areas\Admin\ViewModels\User\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -57,6 +59,8 @@
     <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Admin\ViewModels\Slider\" />
     <Folder Include="Helpers\Enums\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Areas\Admin\ViewModels\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">

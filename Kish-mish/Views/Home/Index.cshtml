@@ -65,170 +65,163 @@
                         </li>
                     </ul>
                     <ul class="category d-none d-md-flex list-unstyled">
-                        <li><a href="" data-id="popular">Çərəzlər</a></li>
-                        <li><a href="" data-id="winter">Şokoladlar</a></li>
-                        <li><a href="" data-id="various">Meyvə quruları</a></li>
-                        <li><a href="" data-id="exotic">Duzlu təamlar</a></li>
-                        <li><a href="" data-id="green">Kish-Mish qutuları</a></li>
+
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li><a  data-id="@item.Id" href="">@item.Name</a></li>
+
+
+                        }
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="popular">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/slider4.png" class="img-fluid" alt="">
-                            </a>
-                            <div class="product-action">
-                                <ul>
-                                    <li>
-                                        <a href="" class="add-to-cart">
-                                            <img src="~/assets/images/add-to-cart.svg" alt="">
+            <div class="tab-content">
+                <div class="tab-pane fade show p-0 active">
+                    <div class="row">
+                        @foreach (var item in Model.Products)
+
+                            {
+                            <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                                <div class="product-item text-center" data-id="@item.CategoryId">
+                                    <div class="img">
+                                        <a href="">
+                                            <img src="~/assets/images/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid" alt="">
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a class="product-details" data-bs-toggle="modal" data-bs-target="#id1">
-                                            <img src="~/assets/images/quick-view.svg" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="add-to-wishlist">
-                                            <img src="~/assets/images/add-to-wishlist.svg" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
+          
+                                    </div>
+                                    <div class="title mt-3">
+                                        <h6>@item.Name</h6>
+                                    </div>
+                                    <div class="price">
+                                        <span class="text-black-50">Add to cart</span>
+                                        <span class="text-black-50">@item.Price₼</span>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        @*<div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="popular">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/Bitter-Sokoladli-Duble-Lokum-scaled.jpg" class="img-fluid"
+                                             alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Bitter Şokoladlı Duble Lokum</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">9,40 ₼</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="title mt-3">
-                            <h6>Altın Çilek</h6>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="winter">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/slider3.png" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Badamlı Pralin</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">10,20 ₼</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">10,65 ₼</span>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="winter">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/ALMA QURUSU DARÇINLI.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Alma Qurusu Darçınlı</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">2,10 ₼</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="popular">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/Bitter-Sokoladli-Duble-Lokum-scaled.jpg" class="img-fluid"
-                                     alt="">
-                            </a>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="various">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/Natural-Ananas-Qurusu.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Natural Ananas Qurusu</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">12,50 ₼</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="title mt-3">
-                            <h6>Bitter Şokoladlı Duble Lokum</h6>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="various">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/Franbuazli-Trufel.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Franbuazlı Trufel</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">9,30 ₼</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">9,40 ₼</span>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="exotic">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/Findiqli-Trufel.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>Fındıqlı Trufel</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">9,30 ₼</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="winter">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/slider3.png" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>Badamlı Pralin</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">10,20 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="winter">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/ALMA QURUSU DARÇINLI.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>Alma Qurusu Darçınlı</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">2,10 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="various">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/Natural-Ananas-Qurusu.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>Natural Ananas Qurusu</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">12,50 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="various">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/Franbuazli-Trufel.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>Franbuazlı Trufel</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">9,30 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="exotic">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/Findiqli-Trufel.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>Fındıqlı Trufel</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">9,30 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                    <div class="product-item text-center" data-id="exotic">
-                        <div class="img">
-                            <a href="">
-                                <img src="~/assets/images/Kvadrat-Taxta-Qutu-1300x1300.jpg" class="img-fluid"
-                                     alt="">
-                            </a>
-                        </div>
-                        <div class="title mt-3">
-                            <h6>KVADRAT TAXTA QUTU</h6>
-                        </div>
-                        <div class="price">
-                            <span class="text-black-50">Add to cart</span>
-                            <span class="text-black-50">416,00 ₼</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="show-btn mt-5">
-                    <button>Daha çox</button>
+                        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                            <div class="product-item text-center" data-id="exotic">
+                                <div class="img">
+                                    <a href="">
+                                        <img src="~/assets/images/Kvadrat-Taxta-Qutu-1300x1300.jpg" class="img-fluid"
+                                             alt="">
+                                    </a>
+                                </div>
+                                <div class="title mt-3">
+                                    <h6>KVADRAT TAXTA QUTU</h6>
+                                </div>
+                                <div class="price">
+                                    <span class="text-black-50">Add to cart</span>
+                                    <span class="text-black-50">416,00 ₼</span>
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="show-btn mt-5">
+                            <button>Daha çox</button>
 
+                        </div>
+                    </div>
                 </div>
+                </div>
+
             </div>
-        </div>
     </section>
 
     <!-- PRODUCTS END -->

@@ -1,6 +1,7 @@
 ﻿
 using Domain.Entities;
 using Kish_mish.Helpers;
+using Kish_mish.Helpers.Enums;
 using Kish_mish.ViewModels.Account;
 using MailKit.Net.Smtp;
 using MailKit.Security;
@@ -18,17 +19,17 @@ namespace Kish_mish.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppSettings _appSettings;
 
         public AccountController(UserManager<AppUser> userManager,
                                 SignInManager<AppUser> signInManager,
-        //RoleManager<IdentityRole> roleManager,
+        RoleManager<IdentityRole> roleManager,
         IOptions<AppSettings> appSettings)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            //_roleManager = roleManager;
+            _roleManager = roleManager;
             _appSettings = appSettings.Value;
         }
 
@@ -63,7 +64,7 @@ namespace Kish_mish.Controllers
                 return View(request);
             }
 
-            //await _userManager.AddToRoleAsync(newUser, nameof(Roles.Member));
+            await _userManager.AddToRoleAsync(newUser, nameof(Roles.SuperAdmin));
 
 
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
@@ -153,7 +154,6 @@ namespace Kish_mish.Controllers
                 return View(request);
             }
 
-            //await _signInManager.SignInAsync(existUser, false);
 
             return RedirectToAction("Index", "Home");
 
@@ -238,19 +238,17 @@ namespace Kish_mish.Controllers
 
         }
 
-
-        //    [HttpGet]
-        //    public async Task<IActionResult> CreateRoles()
-        //    {
-        //        foreach (var role in Enum.GetValues(typeof(Roles)))
-        //        {
-        //            if (!await _roleManager.RoleExistsAsync(nameof(role)))
-        //            {
-        //                await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
-        //            }
-        //        }
-        //        return Ok();
-        //    }
-        //}
+        [HttpGet]
+        public async Task<IActionResult> CreateRoles()
+        {
+            foreach (var role in Enum.GetValues(typeof(Roles)))
+            {
+                if (!await _roleManager.RoleExistsAsync(nameof(role)))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
+            return Ok();
+        }
     }
 }

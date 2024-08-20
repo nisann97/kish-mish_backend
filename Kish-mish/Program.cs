@@ -6,6 +6,8 @@ using Service.Services;
 using Service.Services.Interfaces;
 using Domain.Entities;
 using Kish_mish.Helpers;
+using Repository.Repositories;
+using Repository.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +36,12 @@ builder.Services.Configure<IdentityOptions>(opt =>
 builder.Services.AddRepositoryLayer();
 builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
-
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

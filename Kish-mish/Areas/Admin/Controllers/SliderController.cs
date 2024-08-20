@@ -8,6 +8,7 @@ using Kish_mish.Areas.Admin.ViewModels.Slider;
 using Kish_mish.Helpers.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Service.Services.Interfaces;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -37,7 +38,7 @@ namespace Kish_mish.Areas.Admin.Controllers
             }
 
             [HttpGet]
-            //[Authorize(Roles = "SuperAdmin")]
+            [Authorize(Roles = "SuperAdmin")]
             public IActionResult Create()
             {
                 return View();
@@ -54,128 +55,139 @@ namespace Kish_mish.Areas.Admin.Controllers
 
                 if (!request.SliderImage.CheckFileType("image/"))
                 {
-                    ModelState.AddModelError("SliderImage", "File type must be image");
-                    return View();
-                }
+                ModelState.AddModelError("Image", "File must be only in image format");
+                return View();
+            }
 
-                if (!request.SliderImage.CheckFileSize(3))
+                if (request.SliderImage.CheckFileSize(200))
                 {
-                    ModelState.AddModelError("SliderImage", "File size must be less than 3 Mb");
+                    ModelState.AddModelError("SliderImage", "Image size cannot be more than 200 kb");
                     return View();
                 }
 
                 string fileName = Guid.NewGuid().ToString() + "-" + request.SliderImage.FileName;
 
-                string path = Path.Combine(_env.WebRootPath, "img", fileName);
+                string path = Path.Combine(_env.WebRootPath, "assets", "img", fileName);
 
                 await request.SliderImage.SaveFileToLocalAsync(path);
 
-                await _sliderService.Create(new Slider {Image = fileName });
-                return RedirectToAction(nameof(Index));
-            }
-
-
-            [HttpGet]
-            public async Task<IActionResult> Detail(int? id)
+            Slider newSlider = new()
             {
-                if (id is null) return BadRequest();
+                Image = fileName,
 
-                var existSlider = await _sliderService.GetById((int)id);
-
-                if (existSlider is null) return NotFound();
-
-                SliderDetailVM response = new() { SliderImage = existSlider.Image};
-                return View(response);
-            }
-
-            [HttpGet]
-            public async Task<IActionResult> Edit(int? id)
-            {
-                if (id is null) return BadRequest();
-
-                var existSlider = await _sliderService.GetById((int)id);
-
-                if (existSlider is null) return NotFound();
-
-                SliderEditVM response = new()
-                {
-                    ExistImage = existSlider.Image
-                };
-
-                return View(response);
-            }
-
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Edit(int? id, SliderEditVM request)
-            {
-                if (!ModelState.IsValid)
-                {
-                    return (View());
-                }
-
-                if (id is null) return BadRequest();
-
-                var existSlider = await _sliderService.GetById((int)id);
-
-                if (existSlider is null) return NotFound();
-
-                if (request.NewImage is not null)
-                {
-                    if (!request.NewImage.CheckFileType("image/"))
-                    {
-                        ModelState.AddModelError("NewImage", "File type must be image");
-                        request.ExistImage = existSlider.Image;
-                        return View(request);
-                    }
-
-                    if (!request.NewImage.CheckFileSize(3))
-                    {
-                        ModelState.AddModelError("NewImage", "File size must be less than 3 Mb");
-                        request.ExistImage = existSlider.Image;
-                        return View(request);
-                    }
-
-                    string oldPath = Path.Combine(_env.WebRootPath, "img", existSlider.Image);
-                    oldPath.DeleteFileFromLocal();
+            };
 
 
-                    string newFileName = Guid.NewGuid().ToString() + "-" + request.NewImage.FileName;
-                    string newPath = Path.Combine(_env.WebRootPath, "img", newFileName);
-                    await request.NewImage.SaveFileToLocalAsync(newPath);
+            //await .SliderImage.AddAsync(newSlider);
 
-                    await _sliderService.Edit((int)id, new Slider { Image = newFileName });
-
-                }
-                else
-                {
-                    await _sliderService.Edit((int)id, new Slider { Image = existSlider.Image });
-                }
+            //await request.SaveChangesAsync();
 
 
-                return RedirectToAction(nameof(Index));
-
-            }
-
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            [Authorize(Roles = "SuperAdmin")]
-            public async Task<IActionResult> Delete(int? id)
-            {
-                if (id is null) return BadRequest();
-
-                var existSlider = await _sliderService.GetById((int)id);
-
-                if (existSlider is null) return NotFound();
-
-                string existImage = Path.Combine(_env.WebRootPath, "img", existSlider.Image);
-
-                existImage.DeleteFileFromLocal();
-
-                await _sliderService.Delete(existSlider);
-                return RedirectToAction(nameof(Index));
-
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
+
+
+            //[HttpGet]
+            //public async Task<IActionResult> Detail(int? id)
+            //{
+            //    if (id is null) return BadRequest();
+
+            //    var existSlider = await _sliderService.GetById((int)id);
+
+            //    if (existSlider is null) return NotFound();
+
+            //    SliderDetailVM response = new() { SliderImage = existSlider.Image};
+            //    return View(response);
+            //}
+
+            //[HttpGet]
+            //public async Task<IActionResult> Edit(int? id)
+            //{
+            //    if (id is null) return BadRequest();
+
+            //    var existSlider = await _sliderService.GetById((int)id);
+
+            //    if (existSlider is null) return NotFound();
+
+            //    SliderEditVM response = new()
+            //    {
+            //        ExistImage = existSlider.Image
+            //    };
+
+            //    return View(response);
+            //}
+
+            //[HttpPost]
+            //[ValidateAntiForgeryToken]
+            //public async Task<IActionResult> Edit(int? id, SliderEditVM request)
+            //{
+            //    if (!ModelState.IsValid)
+            //    {
+            //        return (View());
+            //    }
+
+            //    if (id is null) return BadRequest();
+
+            //    var existSlider = await _sliderService.GetById((int)id);
+
+            //    if (existSlider is null) return NotFound();
+
+            //    if (request.NewImage is not null)
+            //    {
+            //        if (!request.NewImage.CheckFileType("image/"))
+            //        {
+            //            ModelState.AddModelError("NewImage", "File type must be image");
+            //            request.ExistImage = existSlider.Image;
+            //            return View(request);
+            //        }
+
+            //        if (!request.NewImage.CheckFileSize(3))
+            //        {
+            //            ModelState.AddModelError("NewImage", "File size must be less than 3 Mb");
+            //            request.ExistImage = existSlider.Image;
+            //            return View(request);
+            //        }
+
+            //        string oldPath = Path.Combine(_env.WebRootPath, "img", existSlider.Image);
+            //        oldPath.DeleteFileFromLocal();
+
+
+            //        string newFileName = Guid.NewGuid().ToString() + "-" + request.NewImage.FileName;
+            //        string newPath = Path.Combine(_env.WebRootPath, "img", newFileName);
+            //        await request.NewImage.SaveFileToLocalAsync(newPath);
+
+            //        await _sliderService.Edit((int)id, new Slider { Image = newFileName });
+
+            //    }
+            //    else
+            //    {
+            //        await _sliderService.Edit((int)id, new Slider { Image = existSlider.Image });
+            //    }
+
+
+            //    return RedirectToAction(nameof(Index));
+
+            //}
+
+            //[HttpPost]
+            //[ValidateAntiForgeryToken]
+            //[Authorize(Roles = "SuperAdmin")]
+            //public async Task<IActionResult> Delete(int? id)
+            //{
+            //    if (id is null) return BadRequest();
+
+            //    var existSlider = await _sliderService.GetById((int)id);
+
+            //    if (existSlider is null) return NotFound();
+
+            //    string existImage = Path.Combine(_env.WebRootPath, "img", existSlider.Image);
+
+            //    existImage.DeleteFileFromLocal();
+
+            //    await _sliderService.Delete(existSlider);
+            //    return RedirectToAction(nameof(Index));
+
+            //}
+  }
 

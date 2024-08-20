@@ -8,17 +8,23 @@ namespace Kish_mish.Controllers;
 public class HomeController : Controller
 {
     private readonly ISliderService _sliderService;
+    private readonly ICategoryService _categoryService;
+    private readonly IProductService _productService;
 
-    public HomeController(ISliderService sliderService)
+    public HomeController(ISliderService sliderService,
+                         ICategoryService categoryService,
+                         IProductService productService)
     {
         _sliderService = sliderService;
+        _categoryService = categoryService;
+        _productService = productService;
 
     }
 
     public async Task<IActionResult> Index()
     {
-        //var categories = await _categoryService.GetAll();
-        //var products = await _productService.GetAll();
+        var categories = await _categoryService.GetAll();
+        var products = await _productService.GetAll();
         var sliders = await _sliderService.GetAll();
         //var features = await _featureService.GetAll();
         //var ads = await _adService.GetAll();
@@ -30,8 +36,8 @@ public class HomeController : Controller
 
         HomeVM model = new()
         {
-            //Categories = categories,
-            //Products = products,
+            Categories = categories,
+            Products = products,
             Sliders = sliders,
             //SliderInfo = sliderInfos.FirstOrDefault(),
             //Features = features,
