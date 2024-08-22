@@ -32,6 +32,7 @@ builder.Services.Configure<IdentityOptions>(opt =>
 
 
 builder.Services.AddRepositoryLayer();
+builder.Services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
 builder.Services.AddScoped<IProductService, ProductService>();

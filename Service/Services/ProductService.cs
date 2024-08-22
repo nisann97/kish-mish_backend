@@ -25,9 +25,9 @@ namespace Service.Services
             await _productRepository.ChangeMainImage(product, id);
         }
 
-        public async Task Create(Product category)
+        public async Task Create(Product product)
         {
-            await _productRepository.Create(category);
+            await _productRepository.Create(product);
         }
 
         public async Task Delete(Product product)

@@ -8,8 +8,8 @@ namespace Service.Services.Interfaces
     {
         Task<List<Product>> GetAll();
         Task<Product> GetById(int id);
-        Task Create(Product category);
-        Task Edit(int id, Product category);
+        Task Create(Product product);
+        Task Edit(int id, Product product);
         Task Delete(Product product);
         Task DeleteImage(ProductImage image);
         Task ChangeMainImage(Product product, int id);

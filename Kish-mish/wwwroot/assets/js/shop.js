@@ -1,16 +1,4 @@
-    
-  //#region header-sticky
-   var headerSticky = $("#header-sticky");
-
-   $(window).scroll(function () {
-     if ($(window).scrollTop() > 200) {
-       headerSticky.addClass("show");
-     } else {
-       headerSticky.removeClass("show");
-     }
-   });
-   //#endregion
-
+   
 
 //search
 $('.icon-search, .icon-close').on("click", function(){

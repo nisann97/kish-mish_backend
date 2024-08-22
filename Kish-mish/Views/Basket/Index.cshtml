@@ -1,127 +1,120 @@
 ﻿
+@model List<BasketVM>
 
+@section js {
+    <script src="~/js/basket.js"></script>
+}
 @section css {
     <link rel="stylesheet" href="~/assets/css/basket.css" />
 }
 
-<main>
+<!-- Cart Page Start -->
+<section id="basket-area">
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="alert alert-danger text-center" role="alert">
+                    Məhsul əlavə etmək üçün daxil olun
+                </div>
+            }
+            else
+            {
+                if (Model.Count == 0)
+                {
+                    <div>
+                        <h1 style="font-weight: 500; text-align: center"> Məhsul əlavə edilməyib</h1>
+                       
+                       
+                    </div>
+                    <a style=" text-align: center; text-decoration: none; cursor: pointer; width:120px; display: block; margin: auto; color: white; background-color: black; border: 1px solid;" asp-controller="Shop" asp-action="Index">Alışverişə davam et</a>
+                }
+                else
+                {
+                    <div class="basket-area">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Products</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr data-id="@item.Id">
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="~/img/@item.Image" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <p class="mb-0 mt-4">@item.Name</p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4">@item.Price $</p>
+                                            </td>
+                                            <td>
+                                                <div class="input-group quantity mt-4" style="width: 100px;">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <input type="text" class="form-control form-control-sm text-center border-0" value="@item.Count">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4">@item.ProductTotalPrice $</p>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-md rounded-circle bg-light border mt-4 remove-prod">
+                                                    <i class="fa fa-times text-danger"></i>
+                                                </button>
+                                            </td>
 
-    <section id="back-to-top-btn">
-        <a id="button">
-            <img src="./assets/images/chevron-up.svg" alt="">
-        </a>
-        <div class="box">
-            <div class="icon-close">
-                <i class="fa fa-times"></i>
-            </div>
-            <form action="" class="form-area">
-                <input type="text" placeholder="Açar sözü daxil edin">
-                <button>Axtarın</button>
-            </form>
-        </div>
-    </section>
-
-
-    <!-- <div class="mini-cart closed-cart">
-           <div class="cart-mini">
-               <div class="cart-mini-body">
-                   <div class="row">
-                       <div class="col-12">
-                           <div class="header">
-                               <h1>Shopping Cart</h1>
-                               <img src="./assets/icons/xmark.svg" alt="" class="close-mini-cart">
-                           </div>
-                       </div>
-                       <div class="cart-item">
-                           <div class="row row-gap-2 mini-products">
-                           </div>
-                       </div>
-
-                       <div class="col-12">
-                           <div class="total-price">
-                               <h1>Subtotal:</h1>
-                               <span class="total">$<span></span></span>
-                           </div>
-                       </div>
-                       <div class="col-12">
-                           <div class="view-cart">
-                               <a href="cart.html">View Cart</a>
-                           </div>
-                       </div>
-                       <div class="col-12">
-                           <div class="checkout">
-                               <a href="">Checkout</a>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="cart-mini-empty d-none">
-                   <img src="./assets/images/empty-cart.png" alt="">
-                   <h1>Your Cart is empty</h1>
-                   <a href="shop.html">Go to Shop</a>
-               </div>
-           </div>
-
-           <div class="overlay">
-           </div>
-       </div>
-    -->
-
-    <section id="cart-area">
-        <div class="cart-main d-none">
-            <div class="container-main">
-                <div class="row row-gap-3">
-                    <div class="col-12 col-lg-9">
-                        <div class="row">
-                            <div class="col-12">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2" class="cart-header-product">Product</th>
-                                            <th class="cart-header-price">Price</th>
-                                            <th class="cart-header-quantity">Quantity</th>
-                                            <th></th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-                                <div class="row row-gap-3">
-                                    <div class="col-12 col-sm-8">
-                                        <div class="coupon">
-                                            <span>Coupon Code:</span>
-                                            <div class="coupon-input">
-                                                <input type="text" placeholder="Enter Coupon Code">
-                                                <button>Apply</button>
-                                            </div>
-                                        </div>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
+                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply Coupon</button>
+                        </div>
+                        <div class="row g-4 justify-content-end">
+                            <div class="col-8"></div>
+                            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                                <div class="bg-light rounded">
+                                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                        <h5 class="mb-0 ps-4 me-4">Total</h5>
+                                        <h4 class="mb-0 pe-4 total-price">$@ViewBag.TotalPrice</h4>
                                     </div>
-                                    <div class="col-12 col-sm-4">
-                                        <div class="cart-clear">
-                                            <button>Clear Cart</button>
-                                        </div>
-                                    </div>
+                                    <form method="post" asp-action="BuyProducts" asp-controller="Basket">
+                                        <button type="submit" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-3">
-                        <div class="subtotal-area">
-                            <div class="header">
-                                <h1>Subtotal</h1>
-                                <span class="subtotal">$<span></span></span>
-                            </div>
-                            <div class="checkout">
-                                <a href="">Proceed to Checkout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                }
 
-    </section>
-</main>
+            }
+
+        </div>
+    </div>
+</section>
+
+}
+<!-- Cart Page End -->

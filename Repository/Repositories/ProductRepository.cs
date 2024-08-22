@@ -14,9 +14,9 @@ namespace Repository.Repositories
         {
             _context = context;
         }
-        public async Task Create(Product category)
+        public async Task Create(Product product)
         {
-            await _context.Products.AddAsync(category);
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
         }
 

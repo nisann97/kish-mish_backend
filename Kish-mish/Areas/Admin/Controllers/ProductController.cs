@@ -59,10 +59,10 @@ namespace Kish_mish.Areas.Admin.Controllers
             var categories = await _categoryService.GetAll();
             ViewBag.categories = new SelectList(categories, "Id", "Name");
 
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
 
             foreach (var item in request.Images)
             {

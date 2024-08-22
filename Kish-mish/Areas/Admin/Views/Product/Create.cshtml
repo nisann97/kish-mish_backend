@@ -10,12 +10,12 @@
                 <div class="form-group">
                     <span class="text-danger d-block" asp-validation-for="Name"></span>
                     <input asp-for="Name" class="form-control mb-4" placeholder="Product name...">
-
+                    <span class="text-danger" asp-validation-for="Description"></span>
                     <input asp-for="Description" class="form-control mb-4" placeholder="Product description...">
 
 
                     <span class="text-danger d-block" asp-validation-for="Price"></span>
-                    <input asp-for="Price" class="form-control mb-4" type="number" min="0" step="any" placeholder="Product price...">            
+                    <input asp-for="Price" class="form-control mb-4" type="number" min="0" step="any" placeholder="Product price...">
 
                     <label>Product Category</label>
                     <select class="form-control mb-3" asp-for="CategoryId" asp-items="@ViewBag.categories">

@@ -12,7 +12,9 @@ public class HomeController : Controller
 {
     private readonly ISliderService _sliderService;
     private readonly ICategoryService _categoryService;
+    private readonly IHttpContextAccessor _accessor;
     private readonly IProductService _productService;
+   
     private readonly IBasketService _basketService;
     private readonly IAboutService _aboutService;
     private readonly UserManager<AppUser> _userManager;
@@ -21,7 +23,8 @@ public class HomeController : Controller
                          ICategoryService categoryService,
                          IProductService productService,
                          IBasketService basketService,
-                         IAboutService aboutService)
+                         IAboutService aboutService,
+                         IHttpContextAccessor accessor)
     {
         _userManager = userManager;
         _sliderService = sliderService;
@@ -29,6 +32,7 @@ public class HomeController : Controller
         _productService = productService;
         _basketService = basketService;
         _aboutService = aboutService;
+        _accessor = accessor;
 
     }
 
@@ -72,7 +76,7 @@ public class HomeController : Controller
         {
             return Problem();
         }
-
+ 
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
         if (id is null) return BadRequest();
         var dbProduct = await _productService.GetById((int)id);
