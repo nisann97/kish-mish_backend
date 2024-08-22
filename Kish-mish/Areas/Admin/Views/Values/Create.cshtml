@@ -1,0 +1,34 @@
+﻿@model ValuesCreateVM
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-success">
+            <strong>Add new value</strong>
+        </div>
+        <div class="card-body card-block">
+            <form asp-action="Create" method="post" class="" enctype="multipart/form-data">
+                <div class="form-group">
+                    <span class="text-danger d-block" asp-validation-for="Title"></span>
+                    <input asp-for="Title" class="form-control mb-4" placeholder="Title...">
+
+
+
+                    <span class="text-danger d-block" asp-validation-for="Description"></span>
+                    <input asp-for="Description" class="form-control mb-4" type="text" placeholder="Description..">
+
+  
+                    <label> Image</label>
+                    <span class="text-danger d-block" asp-validation-for="Image"></span>
+                    <input asp-for="Image" class="form-control mb-2">
+
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+                <a type="reset" asp-action="Index" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Back
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

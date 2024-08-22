@@ -10,7 +10,7 @@ namespace Kish_mish.ViewModels.User
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
         public List<Slider> Sliders { get; set; }
-        //public List<Product> Vegetables { get; set; }
+        public List<About> About { get; set; }
         //public List<Product> BestSellers { get; set; }
         //public List<Feature> Features { get; set; }
         //public List<Advertisement> Ads { get; set; }

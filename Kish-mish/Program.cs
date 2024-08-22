@@ -44,6 +44,9 @@ builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.AddScoped<IAboutService, AboutService>();
 builder.Services.AddScoped<IAboutRepository, AboutRepository>();
+builder.Services.AddScoped<IValuesService, ValuesService>();
+builder.Services.AddScoped<IValuesRepository, ValuesRepository>();
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

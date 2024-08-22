@@ -17,6 +17,7 @@ namespace Repository.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<About> About { get; set; }
+        public DbSet<CompanyValue> Values { get; set; }
 
 
 
@@ -31,6 +32,8 @@ namespace Repository.Data
             modelBuilder.Entity<Product>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<ProductImage>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<About>().HasQueryFilter(x => !x.SoftDeleted);
+            modelBuilder.Entity<CompanyValue>().HasQueryFilter(x => !x.SoftDeleted);
+
 
             modelBuilder.Entity<Setting>()
                      .HasData(
@@ -298,6 +301,32 @@ namespace Repository.Data
          Id = 1,
          Description = "Kish-Mish is one of the newest family-owned and operated sweets entreprise in Azerbaijan. It has been making taffy, milk chocolate and dark chocolate orange sticks, and cinnamon bears for 1 year. Additionally, Kish-Mish makes an array of gourmet chocolate candies, holiday candy, sugar free candy, and nostalgic candy - an assortment ranging from chocolate covered peanut clusters to marshmallow Easter eggs and jelly beans."
      });
+            modelBuilder.Entity<CompanyValue>()
+                  .HasData(
+     new CompanyValue
+     {
+         Id = 1,
+         Title= "Vizyonumuz",
+         Description = "Çay üçün möhtəşəm ləzzətləri bir araya topladıq",
+         Image = "instagram4.jpeg"
+     },
+     new CompanyValue
+
+     {
+                Id = 2,
+         Title = "Missiyamız",
+         Description = "Həm göz zövqünüzə, həm də damaq dadınıza xitab edən mükəmməl çərəzlər.",
+         Image = "instagram10.jpeg"
+     },
+        new CompanyValue
+
+        {
+            Id = 3,
+            Title = "Məqsədimiz",
+            Description = "Tam təbii, şəkərsiz və qatqısız Süfrələrinizi bəzəyəcək ləzzət…",
+            Image = "instagram3.jpeg"
+        }
+     );
 
         }
 

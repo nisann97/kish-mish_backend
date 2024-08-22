@@ -14,18 +14,21 @@ public class HomeController : Controller
     private readonly ICategoryService _categoryService;
     private readonly IProductService _productService;
     private readonly IBasketService _basketService;
+    private readonly IAboutService _aboutService;
     private readonly UserManager<AppUser> _userManager;
     public HomeController(UserManager<AppUser> userManager,
                          ISliderService sliderService,
                          ICategoryService categoryService,
                          IProductService productService,
-                         IBasketService basketService)
+                         IBasketService basketService,
+                         IAboutService aboutService)
     {
         _userManager = userManager;
         _sliderService = sliderService;
         _categoryService = categoryService;
         _productService = productService;
         _basketService = basketService;
+        _aboutService = aboutService;
 
     }
 
@@ -34,7 +37,7 @@ public class HomeController : Controller
         var categories = await _categoryService.GetAll();
         var products = await _productService.GetAll();
         var sliders = await _sliderService.GetAll();
-        //var features = await _featureService.GetAll();
+        var about = await _aboutService.GetAll();
         //var ads = await _adService.GetAll();
         //var banners = await _bannerService.GetAll();
         //var vegetables = await _productService.GetVegetables();
@@ -47,10 +50,11 @@ public class HomeController : Controller
             Categories = categories,
             Products = products,
             Sliders = sliders,
-            //SliderInfo = sliderInfos.FirstOrDefault(),
+            About = about
             //Features = features,
             //Ads = ads,
             //Vegetables = vegetables,
+
             //Banner = banners.FirstOrDefault(),
             //BestSellers = bestSellers,
             //Comments = comments,

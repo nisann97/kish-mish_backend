@@ -8,7 +8,6 @@ namespace Kish_mish.Areas.Admin.ViewModels.Product
 	{
         [Required]
         public string ProductName { get; set; }
-        [Required]
         public string ProductDescription { get; set; }
         [Required]
         public string ProductPrice { get; set; }

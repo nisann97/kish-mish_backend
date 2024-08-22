@@ -202,10 +202,7 @@ namespace Kish_mish.Areas.Admin.Controllers
         {
             var categories = await _categoryService.GetAll();
             ViewBag.categories = new SelectList(categories, "Id", "Name");
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            
             if (id is null) return BadRequest();
 
             var existProduct = await _productService.GetById((int)id);
@@ -248,8 +245,7 @@ namespace Kish_mish.Areas.Admin.Controllers
                 }
             }
 
-          
-
+         
             Product product = new()
             {
                 Name = request.ProductName,

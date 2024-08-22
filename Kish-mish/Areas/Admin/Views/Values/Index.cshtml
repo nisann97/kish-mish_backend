@@ -1,4 +1,4 @@
-﻿@model List<AboutVM>
+﻿@model List<ValuesVM>
 
 <div class="container">
     @if (User.IsInRole("SuperAdmin"))
@@ -7,11 +7,12 @@
             <a asp-action="Create" class="btn btn-success text-white mb-3 mx-3">Create</a>
         </div>
     }
+
     <div class="table-responsive table--no-card m-b-30">
         <table class="table table-borderless table-striped table-earning">
             <thead>
                 <tr>
-                    <th>Description</th>
+                    <th>Title</th>
                     <th>Operations</th>
                 </tr>
             </thead>
@@ -19,15 +20,16 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@item.Title</td>
                         <td>
 
-                        @item.Description</td>
-                        <td>
+                            <a class="btn btn-info text-white" asp-route-id="@item.Id" asp-action="Detail">Info</a>
                             <a class="btn btn-warning text-white" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                            @if(User.IsInRole("SuperAdmin")){
-                            <form asp-action="Delete" asp-route-id="@item.Id" class="d-inline" method="post">
-                                <button type="submit" class="btn btn-danger text-white">Delete</button>
-                            </form>
+                            @if (User.IsInRole("SuperAdmin"))
+                            {
+                                <form asp-action="Delete" asp-route-id="@item.Id" class="d-inline" method="post">
+                                    <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                </form>
                             }
                         </td>
                     </tr>
