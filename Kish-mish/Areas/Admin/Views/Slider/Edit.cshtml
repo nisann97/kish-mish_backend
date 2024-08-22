@@ -7,7 +7,7 @@
         </div>
         <div class="card-body card-block">
             <div>
-                <img src="~/assets/images/@Model.ExistImage"/>
+                <img src="~/assets/images/@Model.Image" />
             </div>
             <form asp-action="Edit" method="post" class="mt-4" enctype="multipart/form-data">
                 <div class="form-group">
@@ -17,7 +17,7 @@
                     <span class="text-danger" asp-validation-for="NewImage"></span>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                <a asp-action="Index" asp-controller="Slide" class="btn btn-light">Cancel</a>
+                <a asp-action="Index" asp-controller="Slider" class="btn btn-light">Cancel</a>
 
             </form>
         </div>

@@ -177,20 +177,19 @@ namespace Repository.Repositories
             }
         }
 
-        //public async Task BuyProducts(List<Basket> basket)
-        //{
-        //    foreach (var item in basket)
-        //    {
-        //        var product = _context.Products.FirstOrDefault(m => m.Name.Trim().ToLower() == item.ProductName.Trim().ToLower());
-        //        product.Count -= item.ProductCount;
-        //        product.SellingCount += item.ProductCount;
-        //        if (product.Count == 0)
-        //        {
-        //            await Delete(product);
-        //        }
-        //    }
-        //    await _context.SaveChangesAsync();
-        //}
+        public async Task BuyProducts(List<Basket> basket)
+        {
+            foreach (var item in basket)
+            {
+                var product = _context.Products.FirstOrDefault(m => m.Name.Trim().ToLower() == item.ProductName.Trim().ToLower());
+                product.Count -= item.ProductCount;
+                if (product.Count == 0)
+                {
+                    await Delete(product);
+                }
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 
 

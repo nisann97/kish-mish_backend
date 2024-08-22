@@ -12,6 +12,17 @@
    //#endregion
 
 
+//search
+$('.icon-search, .icon-close').on("click", function(){
+  $('.box').toggleClass("open");
+ 
+})
+
+$(document).ready(function () {
+  $(".owl-carousel").owlCarousel();
+});
+
+
       //#region back-to-top-button
   var btn = $("#button");
 

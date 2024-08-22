@@ -5,7 +5,7 @@ namespace Kish_mish.Areas.Admin.ViewModels.Slider
 {
 	public class SliderEditVM
 	{
-        public string ExistImage { get; set; }
+        public string Image { get; set; }
         public IFormFile NewImage { get; set; }
     }
 }

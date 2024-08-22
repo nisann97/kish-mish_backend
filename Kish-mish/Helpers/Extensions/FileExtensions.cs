@@ -3,10 +3,11 @@ namespace Kish_mish.Helpers.Extensions
 {
     public static class FileExtensions
     {
-        public static bool CheckFileSize(this IFormFile file, int size)
+        public static bool CheckFileSize(this IFormFile file, int fileSize)
         {
-            return file.Length / 1024 > size;
+            return file.Length / 1024 / 1024 < fileSize;
         }
+
 
         public static bool CheckFileType(this IFormFile file, string pattern)
         {
@@ -29,7 +30,6 @@ namespace Kish_mish.Helpers.Extensions
             }
 
             return fileName;
-
         }
 
         public static async void DeleteFile(this string fileName, string root, params string[] folders)

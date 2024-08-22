@@ -15,10 +15,10 @@ namespace Service.Services
             _productRepository = productRepository;
         }
 
-        //public async Task BuyProducts(List<Basket> basket)
-        //{
-        //    await _productRepository.BuyProducts(basket);
-        //}
+        public async Task BuyProducts(List<Basket> basket)
+        {
+            await _productRepository.BuyProducts(basket);
+        }
 
         public async Task ChangeMainImage(Product product, int id)
         {

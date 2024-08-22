@@ -1,30 +1,5 @@
 "use strict";
 
-$(function () {
-    $(document).on('click', '.categories', function (e) {
-        e.preventDefault();
-        $(this).next().next().slideToggle();
-    })
-
-    $(document).on('click', '.category li a', function (e) {
-        e.preventDefault();
-        let category = $(this).attr('data-id');
-        $(this).addClass("active");
-        $(this).parent().siblings().children().first().removeClass("active");
-        let products = $('.product-item');
-
-        products.each(function () {
-            if (category == $(this).attr('data-id')) {
-                $(this).parent().fadeIn();
-            }
-            else {
-                $(this).parent().hide();
-            }
-        })
-        if (category == 'all') {
-            products.parent().fadeIn();
-        }
-    })
 
 // SLIDER
 
@@ -82,6 +57,7 @@ $(".close").click(function (e) {
 //#endregion
 
 
+
 var btn = document.getElementsByClassName("btn");
 var slide = document.getElementById("slide-row");
 
@@ -100,8 +76,10 @@ btn[3].onclick = function () {
 
 
 //search
+
+var searchBox = $(".box");
 $('.icon-search, .icon-close').on("click", function(){
-  $('.box').toggleClass("open");
+ searchBox.toggleClass("open");
  
 })
 
@@ -110,6 +88,28 @@ $(document).ready(function () {
 });
 
 
+//endregion
+
+     //#region back-to-top-button
+     var btn = $("#button");
+
+     $(window).scroll(function () {
+       if ($(window).scrollTop() > 300) {
+         btn.addClass("show");
+       } else {
+         btn.removeClass("show");
+       }
+     });
+   
+     btn.on("click", function (e) {
+       e.preventDefault();
+       $("html, body").animate({ scrollTop: 0 }, "300");
+     });
+   
+     //#endregion
+//user dropdown
+
+let dropdowns = document.querySelector(".dropdown-menu")
 
 // INSTAGRAM
 

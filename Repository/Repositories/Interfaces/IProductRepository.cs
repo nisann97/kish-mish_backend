@@ -22,8 +22,7 @@ namespace Repository.Repositories.Interfaces
         Task<int> GetPriceFilteredCount(int price);
         Task<int> GetCategoryFilteredCount(int categoryId);
         Task<int> GetCount();
-
-        //Task BuyProducts(List<Basket> basket);
+        Task BuyProducts(List<Basket> basket);
 
     }
 

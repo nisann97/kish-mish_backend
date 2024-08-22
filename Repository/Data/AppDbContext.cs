@@ -15,7 +15,8 @@ namespace Repository.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<About> About { get; set; }
 
 
 
@@ -29,6 +30,7 @@ namespace Repository.Data
             modelBuilder.Entity<Category>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<Product>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<ProductImage>().HasQueryFilter(x => !x.SoftDeleted);
+            modelBuilder.Entity<About>().HasQueryFilter(x => !x.SoftDeleted);
 
             modelBuilder.Entity<Setting>()
                      .HasData(
@@ -289,11 +291,20 @@ namespace Repository.Data
 
 
           );
+            modelBuilder.Entity<About>()
+                  .HasData(
+     new About
+     {
+         Id = 1,
+         Description = "Kish-Mish is one of the newest family-owned and operated sweets entreprise in Azerbaijan. It has been making taffy, milk chocolate and dark chocolate orange sticks, and cinnamon bears for 1 year. Additionally, Kish-Mish makes an array of gourmet chocolate candies, holiday candy, sugar free candy, and nostalgic candy - an assortment ranging from chocolate covered peanut clusters to marshmallow Easter eggs and jelly beans."
+     });
 
         }
 
     }
 }  
+
+       
 
        
 

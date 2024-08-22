@@ -23,7 +23,7 @@ namespace Service.Services.Interfaces
         Task<int> GetCategoryFilteredCount(int categoryId);
         Task<int> GetCount();
         int GetPageCount(int count, int take);
-        //Task BuyProducts(List<Basket> basket);
+        Task BuyProducts(List<Basket> basket);
     }
 
 

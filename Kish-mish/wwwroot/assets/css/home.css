@@ -68,32 +68,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-.account i {
-    transition: 0.5s;
-}
-
-    .account i:hover {
-        border: 1px solid black !important;
-    }
-
-
-.account .dropdown-menu {
-    transform: translateX(-50%);
-    display: none;
-    margin-top: 0%;
-}
-
-    .account .dropdown-menu .submenu {
-        z-index: 1;
-    }
-
-.account .user:hover .dropdown-menu {
-    display: block !important;
-}
-
-.account .user {
-    transition: all 0.5s;
-}
 
 
 
@@ -262,6 +236,8 @@ letter-spacing: 3px ;
 
 }
 
+
+
 #navbar-area .navbar .submenu a {
   text-decoration: none;
   font-family: Lato;
@@ -273,6 +249,33 @@ letter-spacing: 3px ;
 
 #navbar-area .navbar .submenu a:hover {
   color: rgba(120, 106, 170, 0.352);
+}
+
+.account i{
+  transition: 0.5s;
+}
+
+.account i:hover{
+border: 1px solid black !important;
+}
+
+
+.account .dropdown-menu{
+  transform: translateX(-50%);
+  display: none;
+  margin-top: 0%;
+}
+
+.account .dropdown-menu .submenu{
+  z-index: 1;
+}
+.account .user:hover .dropdown-menu{
+  display: block !important; 
+
+}
+
+.account .user{
+  transition: all 0.5s;
 }
 
 
@@ -789,7 +792,7 @@ margin-bottom: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 600px;
   width: 100%;
   background-image: radial-gradient(
       at 40% 20%,
@@ -827,10 +830,10 @@ margin-bottom: 30px;
 #customer-review .image img{
   height: 100%;
   border-radius: 10px;
-  /* width: 320px;
+  width: 320px;
   object-fit: cover;
   pointer-events: none;
-  user-select: none; */
+  user-select: none;
 }
 
 #customer-review .content-testimonial{
@@ -872,7 +875,6 @@ margin-bottom: 30px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* overflow: hidden; */
 }
 
 
@@ -906,26 +908,43 @@ margin-bottom: 30px;
   overflow: hidden;
 }
 
+@media (max-width: 1200px){
 
+  #header-top .logo img{
+    width: 100%;
+    height: 100%;
+  }
+
+  #header-top .logo
+}
 
 @media (max-width: 850px) {
   #customer-review {
-    width: 500px;
+    width: 100%;
+    height: 400px;
+    position: relative;
   }
 
   .row.testimonials{
-    width: 2000px;
+    width: 100%;
   }
 
-  .slide-col {
+  .slide-row{
     width: 500px;
     height: 250px;
+    position: absolute;
   }
 
-  .hero img {
-    width: 200px;
+  #customer-review .image img{
+    height: 50%;
+    border-radius: 10px;
+    width: 320px;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
   }
-
+  
   .content {
     width: 320px;
     height: 200px;
@@ -944,16 +963,31 @@ margin-bottom: 30px;
 
 @media (max-width: 550px) {
   #customer-review {
-    width: 300px;
+    width: 100%;
+    position: relative;
+    min-height: 325px !important;
+
   }
 
+
+  #customer-review .indicator{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+  }
+
+
   .row.testimonials{
-    width: 1200px;
+    width: 100%;
+    position: absolute;
   }
 
   .testimonials-item{
-    width: 500px;
-    height: 300px;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+
   }
 
   #customer-review .image{
@@ -969,6 +1003,21 @@ margin-bottom: 30px;
   #customer-review .content-testimonial{
     width: 300px;
   }
+
+  #about .container{
+    width: 100%;
+    height: 600px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  #instagram{
+    width: 100%;
+    height: 600px;
+  }
+ 
 }
 
 footer {

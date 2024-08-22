@@ -25,9 +25,7 @@ builder.Services.Configure<IdentityOptions>(opt =>
     opt.Password.RequireLowercase = true;
     opt.Password.RequireDigit = true;
     opt.Password.RequireNonAlphanumeric = true;
-
     opt.User.RequireUniqueEmail = true;
-
     opt.SignIn.RequireConfirmedEmail = true;
 });
 
@@ -42,6 +40,10 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IAboutRepository, AboutRepository>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

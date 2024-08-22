@@ -12,55 +12,48 @@
     <None Remove="Areas\" />
     <None Remove="ViewComponents\" />
     <None Remove="ViewModels\" />
-    <None Remove="Views\" />
     <None Remove="Views\Shared\Component\Header\" />
     <None Remove="ViewModels\User\" />
     <None Remove="Views\Shared\Component\Footer\" />
-    <None Remove="Views\Shared\Components\" />
-    <None Remove="Views\Account\" />
     <None Remove="ViewModels\Account\" />
     <None Remove="Helpers\" />
     <None Remove="Helpers\Extensions\" />
-    <None Remove="Views\Shop\" />
     <None Remove="Areas\Admin\" />
     <None Remove="Areas\Admin\Controllers\" />
     <None Remove="Areas\Admin\Views\" />
     <None Remove="Areas\Admin\Views\Dashboard\" />
     <None Remove="Areas\Admin\Views\Shared\" />
-    <None Remove="Areas\Admin\Views\Slider\" />
     <None Remove="Areas\Admin\ViewModels\" />
     <None Remove="Areas\Admin\ViewModels\Slider\" />
     <None Remove="Helpers\Enums\" />
     <None Remove="Areas\Admin\Views\User\" />
     <None Remove="Areas\Admin\ViewModels\User\" />
+    <None Remove="ViewModels\Basket\" />
+    <None Remove="Views\" />
+    <None Remove="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Areas\" />
     <Folder Include="ViewComponents\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\Shared\Components\Header\" />
     <Folder Include="ViewModels\User\" />
-    <Folder Include="Views\Shared\Components\Footer\" />
-    <Folder Include="Views\Shared\Components\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="ViewModels\Account\" />
     <Folder Include="Helpers\" />
     <Folder Include="Helpers\Extensions\" />
-    <Folder Include="wwwroot\assets\templates\" />
-    <Folder Include="Views\Shop\" />
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Admin\Views\Dashboard\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Admin\Views\Slider\" />
     <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Admin\ViewModels\Slider\" />
     <Folder Include="Helpers\Enums\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Admin\ViewModels\User\" />
+    <Folder Include="ViewModels\Basket\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">
@@ -80,8 +73,5 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.32" />
     <PackageReference Include="MailKit" Version="4.7.1.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\assets\templates\" />
   </ItemGroup>
 </Project>
