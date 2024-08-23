@@ -449,8 +449,36 @@ text-decoration: underline;
 
 
 
+#products-area  span:nth-child(2) {
+    margin-left: -10px;
+}
+
+#products-area  span:nth-child(1) {
+    margin-left: -70px;
+    opacity: 0;
+}
+
+#products-area .price span {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-size: 12px;
+    cursor: pointer;
+}
 
 
+    #products-area .price span:hover {
+        color: #f34f3f !important;
+    }
+
+#products-area .product-item:hover .price span:nth-child(2) {
+    margin-left: 0px;
+    opacity: 0;
+}
+
+#products-area .product-item:hover .price span:nth-child(1) {
+    margin-left: 30px;
+    opacity: 1;
+}
 
 
 

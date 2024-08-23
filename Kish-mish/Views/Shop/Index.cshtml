@@ -1,10 +1,9 @@
 ﻿@model ProductPageVM
 
-
 @section js {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/assets/js/shop.js"></script>
 }
-
 
 
 @section css {
@@ -16,7 +15,7 @@
 
     <section id="back-to-top-btn">
         <a id="button">
-            <img src="./assets/images/chevron-up.svg" alt="">
+            <img src="~/assets/images/chevron-up.svg" alt="">
         </a>
     </section>
 
@@ -32,8 +31,7 @@
                                 @foreach (var item in Model.Categories)
                                 {
                                     <li>
-                                        <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" asp-route-categoryId="@item.Id" asp-action="Index" asp-controller="Shop"
-                                          >@item.Name</a>
+                                        <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" asp-route-categoryId="@item.Id" asp-action="Index" asp-controller="Shop">@item.Name</a>
                                         <span style="text-align:left">(@item.Products.Count)</span>
 
                                     </li>
@@ -67,15 +65,15 @@
                             </div>
                         </div>
                         @if (Model.Pagination.Datas.Count == 0)
-                            {
+                        {
                             <div class="alert alert-info text-center  justify-content-center" role="alert">
                                 Məhsul yoxdur
                             </div>
-                            }
-                            else
-                            {
+                        }
+                        else
+                        {
                             @foreach (var item in Model.Pagination.Datas)
-                                {
+                            {
                                 <div class="col-12 col-sm-6 col-md-4">
 
                                     <div class="product-item text-center" data-id="">
@@ -88,15 +86,15 @@
                                             <h6>@item.Name</h6>
                                         </div>
                                         <div class="price">
-                                            <a data-id="@item.Id"><span class="add-to-basket text-black-50">Səbətə əlavə et</span></a>
-                                            <span class="text-black-50">@item.Price ₼</span>
+                                            <a data-id="@item.Id" class="add-product-basket"><span class="text-black-50">Səbətə əlavə et</span></a>
+                                            <span class="text-black-50">@item.Price₼</span>
                                         </div>
                                     </div>
                                 </div>
-                                }
-                              
                             }
-                     </div>
+
+                        }
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -106,12 +104,12 @@
                         <ul>
                             @*<li class="page-item @(Model.Pagination.HasPrevious ? "" : "disabled")" "><a class="current">1</a></li>*@
                             @for (int i = 1; i <= Model.Pagination.TotalPage; i++)
-                                {
+                            {
                                 <li class="page-item @(i == Model.Pagination.CurrentPage ? "disabled" : "")"><a class="page-link @(i == Model.Pagination.CurrentPage ? "paginate-active" : "")" asp-action="Index" asp-route-page="@i">@i</a></li>
-                                }
-                             
-                                <liclass="page-item  @(Model.Pagination.HasNext ? "" : "disabled")"> <a class="page-link" asp-action="Index" asp-route-page="@(Model.Pagination.CurrentPage+1)"><i class="fa-solid fa-arrow-right"></i></a></liclass="page-item>
-                            </ul>
+                            }
+
+                            <liclass ="page-item  @(Model.Pagination.HasNext ? "" : "disabled")"> <a class="page-link" asp-action="Index" asp-route-page="@(Model.Pagination.CurrentPage+1)"><i class="fa-solid fa-arrow-right"></i></a></liclass>
+                        </ul>
                     </div>
                 </div>
             </div>

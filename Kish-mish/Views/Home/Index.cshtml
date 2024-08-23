@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/assets/css/home.css" />
 }
 
+
 <main>
 
     <!-- slider starts -->
@@ -84,7 +85,7 @@
                             <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                                 <div class="product-item text-center" data-id="@item.CategoryId">
                                     <div class="img">
-                                        <a href="">
+                                        <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
                                             <img src="~/assets/images/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid" alt="">
                                         </a>
 
@@ -93,14 +94,14 @@
                                         <h6>@item.Name</h6>
                                     </div>
                                     <div class="price">
-                                        <a data-id="@item.Id"><span class="add-to-basket text-black-50">Səbətə əlavə et</span></a>
+                                        <a data-id="@item.Id" class="add-product-basket"><span class="text-black-50">Səbətə əlavə et</span></a>
                                         <span class="text-black-50">@item.Price₼</span>
                                     </div>
                                 </div>
                             </div>
                         }
-                               
-                 
+
+
                         <div class="show-btn mt-5">
                             <button>Daha çox</button>
 

@@ -107,6 +107,7 @@ $(document).ready(function () {
      });
    
      //#endregion
+     
 //user dropdown
 
 let dropdowns = document.querySelector(".dropdown-menu")
@@ -138,5 +139,62 @@ $(document).ready(function () {
 
 
 });
+
+
+$(function () { //ADD BASKET
+    $(document).on('click', '.add-product-basket', function (e) {
+        e.preventDefault();
+        let id = parseInt($(this).attr("data-id"));
+
+        $.ajax({
+            url: `Home/AddProductToBasket?id=${id}`,
+            type: 'POST',
+            success: function (response) {
+                $(".product-count").text(response.count);
+                toastr["success"]("Məhsul əlavə edilməyib")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+            },
+            error: function (response) {
+                toastr["error"]("Məhsul əlavə etmək üçün daxil ol")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+            }
+        });
+    })
+
+})
+
+
 
 

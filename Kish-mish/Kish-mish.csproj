@@ -33,6 +33,8 @@
     <None Remove="Views\Shared\" />
     <None Remove="Areas\Admin\ViewModels\Values\" />
     <None Remove="Areas\Admin\Views\Values\" />
+    <None Remove="ViewModels\Products\" />
+    <None Remove="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -58,6 +60,8 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="Areas\Admin\ViewModels\Values\" />
     <Folder Include="Areas\Admin\Views\Values\" />
+    <Folder Include="ViewModels\Products\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">

@@ -29,7 +29,7 @@
                                        data-bs-toggle="dropdown">Məhsullar</a>
                                     <div class="dropdown-menu">
                                         <ul class="submenu">
-                                            <li><a href="">Çərəzlər</a></li>
+                                            <li><a asp-controller="">Çərəzlər</a></li>
                                             <li><a href="shop.html">Şokoladlar</a></li>
                                             <li><a href="shop.html">Meyvə quruları</a></li>
                                             <li><a href="">Duzlu təamlar</a></li>
@@ -52,9 +52,9 @@
                                         </div>
                                     </div>
 
-                                    <a asp-controller="Basket" asp-action="Index" class="add-product-basket position-relative me-4 my-auto">
+                                    <a asp-controller="Basket" asp-action="Index" class=" position-relative me-4 my-auto">
                                         <i class="fa-regular fa-heart"></i>
-                                        <span class="heart position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center px-1"
+                                        <span class=" product-count heart position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center px-1"
                                               style="top: -5px; left: 29px; height: 20px; min-width: 20px;">@ViewBag.BasketCount</span>
                                     </a>
                                      <div class="user">

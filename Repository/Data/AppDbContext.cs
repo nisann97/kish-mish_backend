@@ -18,6 +18,8 @@ namespace Repository.Data
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<About> About { get; set; }
         public DbSet<CompanyValue> Values { get; set; }
+        public DbSet<ProductDetail> ProductDetails { get; set; }
+
 
 
 
