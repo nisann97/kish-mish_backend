@@ -31,7 +31,176 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+@media only screen and (min-width: 1200px) {
+    .sidebar {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #header-top .logo {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        justify-content: left;
+        display: flex;
+        margin-left: -30px;
+    }
+
+
+    #header-top .sidebar .open {
+        font-size: 25px;
+        cursor: pointer;
+        display: block !important;
+        color: black;
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        justify-content: end;
+        z-index: 100;
+    }
+
+    .sidebar.active {
+        background: black;
+        width: 260px;
+        height: 100vh;
+        position: relative;
+        display: block;
+    }
+
+    .sidebar {
+        width: 50px;
+        position: relative;
+    }
+
+
+        .sidebar.active {
+            background: black;
+            width: 260px;
+            height: 100vh;
+            position: relative;
+        }
+
+
+    .icons-right .fa-bars {
+        color: white;
+        position: absolute;
+        bottom: 9px;
+        left: 9px;
+        font-size: 38px;
+        cursor: pointer;
+    }
+
+
+    .icons-right .fa-square-xmark {
+        color: white;
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        font-size: 38px;
+        cursor: pointer;
+    }
+
+    .icons-right .fa-house.close {
+        color: white;
+        position: absolute;
+        top: 166px;
+        right: 9px;
+        font-size: 28px;
+    }
+
+    .icons-right .fa-house.active {
+        color: white;
+        position: absolute;
+        top: 166px;
+        left: 40px;
+        font-size: 28px;
+    }
+
+    .icons-right .fa-question.close {
+        color: white;
+        position: absolute;
+        top: 230px;
+        right: 10px;
+        font-size: 28px;
+    }
+
+
+
+    .icons-right .fa-heart.active {
+        color: white;
+        position: absolute;
+        top: 450px;
+        left: 50%;
+        font-size: 28px;
+    }
+
+    .icons-right .fa-heart.close {
+        color: white;
+        position: absolute;
+        top: 420px;
+        left: 35px;
+        font-size: 28px;
+    }
+
+
+
+    .icons-right .fa-question.active {
+        color: white;
+        position: absolute;
+        top: 230px;
+        left: 40px;
+        font-size: 28px;
+    }
+
+    .icons-right .fa-square-poll-vertical.close {
+        color: white;
+        position: absolute;
+        top: 291px;
+        right: 9px;
+        font-size: 35px;
+    }
+
+    .icons-right .fa-square-poll-vertical.active {
+        color: white;
+        position: absolute;
+        top: 291px;
+        left: 40px;
+        font-size: 35px;
+    }
+
+    .icons-right .fa-file.close {
+        color: white;
+        position: absolute;
+        top: 356px;
+        right: 12px;
+        font-size: 33px;
+    }
+
+    .icons-right .fa-file.active {
+        color: white;
+        position: absolute;
+        top: 356px;
+        left: 40px;
+        font-size: 33px;
+    }
+
+    .text-right ul {
+        line-height: 62px;
+        list-style: none;
+        top: 154px;
+        position: absolute;
+        left: 60px;
+    }
+
+        .text-right ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+        }
+}
+
   #header-top .logo {
     height: 50px;
     display: flex;
@@ -331,41 +500,61 @@
   #product-detail-page .left-side {
     margin-right: 20px;
   }
-  #product-detail-page .left-side .product-image {
-    width: 100%;
-    margin-bottom: 10px;
-    background-color: #F4F5F7;
-    transition: 0.3s;
-    border: 1px solid #F4F5F7;
-    cursor: pointer;
-  }
-  #product-detail-page .left-side .product-image img {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  #product-detail-page .left-side .product-image:hover {
-    border: 1px solid #010F1C;
-  }
-  #product-detail-page .left-side .active-image {
-    border: 1px solid #010F1C;
-  }
-  #product-detail-page .left-side .preview-image {
+    #product-detail-page .left-side .product-image {
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: #F4F5F7;
+        transition: 0.3s;
+        border: 1px solid #F4F5F7;
+        cursor: pointer;
+        opacity: .5;
+    }
+
+        #product-detail-page .left-side .product-image:hover {
+            opacity: 1;
+            border: 1px solid #010F1C;
+        }
+    #product-detail-page .left-side .product-image img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    #product-detail-page .left-side .product-image.selected {
+        opacity: 1 !important;
+        border: 1px solid #010F1C;
+    }
+
+
+#product-detail-page .left-side .preview-image {
     display: none;
     background-color: #F4F5F7;
     width: 100%;
-  }
+}
   #product-detail-page .left-side .preview-image img {
     width: 100%;
   }
-  #product-detail-page .left-side .active-preview-image {
+#product-detail-page .left-side .active-preview-image {
     display: block;
-  }
-  #product-detail-page .right-side {
-    margin-left: 21px;
-    padding-top: 10px;
-  }
+    cursor: zoom-in;
+}
+
+display-img {
+    width: 100%;
+}
+
+
+
+#product-detail-page .left-side .active-preview-image.zoom {
+    position: absolute;
+    transition: width 0.2s ease-out, opacity 0.2s ease-out 0.2s;
+}
+    #product-detail-page .right-side {
+        margin-left: 21px;
+        padding-top: 10px;
+    }
   #product-detail-page .right-side .name span {
     font-size: 16px;
     color: #55585B;
@@ -374,6 +563,8 @@
     font-size: 32px;
     margin-bottom: 12px;
   }
+
+
   #product-detail-page .right-side .reviews {
     display: flex;
     align-items: center;

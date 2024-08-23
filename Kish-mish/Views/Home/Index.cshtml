@@ -36,8 +36,7 @@
                         <img src="~/assets/images/@item.Image" class="@active">
                     }
 
-                    @*<img src="~/assets/images/slider1.png">
-                        <img src="~/assets/images/slider4.png">*@
+                  
                 </div>
 
             </div>
@@ -57,11 +56,12 @@
                             <a href="" class="categories mr-2">Categories</a>
                             <i class="fas fa-caret-down"></i>
                             <ul class="categories list-unstyled" style="display: none;">
-                                <li><a href="" data-id="popular">Çərəzlər</a></li>
-                                <li><a href="" data-id="winter">Şokoladlar</a></li>
-                                <li><a href="" data-id="various">Meyvə quruları</a></li>
-                                <li><a href="" data-id="exotic">Duzlu təamlar</a></li>
-                                <li><a href="" data-id="green">Kish-Mish qutuları</a></li>
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li><a data-id="@item.Id">@item.Name</a></li>
+
+                                }
+   
                             </ul>
                         </li>
                     </ul>
@@ -69,7 +69,7 @@
 
                         @foreach (var item in Model.Categories.Take(7))
                         {
-                            <li><a data-id="@item.Id" href="">@item.Name</a></li>
+                            <li class="category-tab" category-id="@item.Id" style="cursor: pointer;"><a >@item.Name</a></li>
 
 
                         }
@@ -83,7 +83,7 @@
 
                         {
                             <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-                                <div class="product-item text-center" data-id="@item.CategoryId">
+                                <div class="product-item text-center" category-id="@item.CategoryId">
                                     <div class="img">
                                         <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
                                             <img src="~/assets/images/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid" alt="">
@@ -103,7 +103,7 @@
 
 
                         <div class="show-btn mt-5">
-                            <button asp-controller="Shop" asp-action="Index">Daha çox</button>
+                            <button><a asp-controller="Shop" asp-action="Index" style="text-decoration: none; color:white;">Daha çox</a></button>
 
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                     @item.Description
 
                                 </p>
-                                <a class="about-btn" href="">Hekayəmizi oxu</a>
+                                <a class="about-btn" asp-controller="About" asp-action="Index">Hekayəmizi oxu</a>
                             </div>
                         </div>
                     </div>

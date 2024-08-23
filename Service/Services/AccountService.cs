@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Domain.Entities;
+using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 
@@ -13,6 +15,8 @@ namespace Service.Services
             _accountRepository = accountRepository;
         }
 
+      
+
         public async Task<List<AppUser>> GetAll()
         {
             return await _accountRepository.GetAll();
@@ -22,5 +26,7 @@ namespace Service.Services
         {
             return await _accountRepository.GetRoles(user);
         }
+
+    
     }
 }

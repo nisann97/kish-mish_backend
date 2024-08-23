@@ -64,7 +64,7 @@ namespace Kish_mish.Controllers
                 return View(request);
             }
 
-            await _userManager.AddToRoleAsync(newUser, nameof(Roles.SuperAdmin));
+            await _userManager.AddToRoleAsync(newUser, nameof(Roles.Member));
 
 
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);

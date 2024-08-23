@@ -57,3 +57,44 @@ $('.icon-search, .icon-close').on("click", function () {
     searchBox.toggleClass("open");
 
 })
+
+var thumbs = $('.img-selection').find('img');
+thumbs.click(function () {
+    var src = $(this).attr('src');
+    var dp = $('.display-img');
+    var img = $('.zoom');
+    dp.attr('src', src);
+    img.attr('src', src);
+});
+
+$(".product-image").click(function () {
+    $('.product-image').removeClass('selected');
+    $(this).addClass('selected');
+});
+
+
+var zoom = $('.active-preview-image').find('img').attr('src');
+$('.active-preview-image').append('<img class="zoom" src="' + zoom + '">');
+$('.active-preview-image').mouseenter(function () {
+    $(this).mousemove(function (event) {
+        var offset = $(this).offset();
+        var left = event.pageX - offset.left;
+        var top = event.pageY - offset.top;
+
+        $(this).find('.zoom').css({
+            width: '200%',
+            opacity: 1,
+            left: -left,
+            top: -top,
+        });
+    });
+});
+
+$('.active-preview-image').mouseleave(function () {
+    $(this).find('.zoom').css({
+        width: '100%',
+        opacity: 0,
+        left: 0,
+        top: 0,
+    });
+});

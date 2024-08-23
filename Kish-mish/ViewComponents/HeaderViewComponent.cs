@@ -13,14 +13,17 @@ namespace Kish_mish.ViewComponents
         private readonly ISettingService _settingService;
         private readonly IHttpContextAccessor _accessor;
         private readonly IBasketService _basketService;
+        private readonly ICategoryService _categoryService;
         private readonly UserManager<AppUser> _userManager;
         public HeaderViewComponent(ISettingService settingService,
                                     IHttpContextAccessor accessor,
                                    IBasketService basketService,
+                                   ICategoryService categoryService,
                                    UserManager<AppUser> userManager)
         {
             _settingService = settingService;
             _basketService = basketService;
+            _categoryService = categoryService;
             _userManager = userManager;
             _accessor = accessor;
         }
@@ -33,6 +36,8 @@ namespace Kish_mish.ViewComponents
             }
 
             var setting = await _settingService.GetAll();
+            var categories = await _categoryService.GetAll();
+
 
             Dictionary<string, string> values = new();
 
@@ -45,7 +50,8 @@ namespace Kish_mish.ViewComponents
             HeaderVM response = new()
             {
                 Settings = values,
-                UserFullName = user.FullName
+                Categories = categories,
+               UserFullName = user.FullName
             };
 
 

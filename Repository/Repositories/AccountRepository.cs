@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,8 @@ namespace Repository.Repositories
         {
             return await _userManager.GetRolesAsync(user);
         }
+
+    
     }
 }
 

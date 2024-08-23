@@ -78,7 +78,7 @@
 
                                     <div class="product-item text-center" data-id="">
                                         <div class="img">
-                                            <a sp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
+                                            <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
                                                 <img src="~/assets/images/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid" alt="">
                                             </a>
                                         </div>

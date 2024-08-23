@@ -42,13 +42,7 @@ public class HomeController : Controller
         var products = await _productService.GetAll();
         var sliders = await _sliderService.GetAll();
         var about = await _aboutService.GetAll();
-        //var ads = await _adService.GetAll();
-        //var banners = await _bannerService.GetAll();
-        //var vegetables = await _productService.GetVegetables();
-        //var bestSellers = await _productService.GetBestSellerProducts();
-        //var comments = await _commentService.GetAll();
-        //var statistics = await _statisticService.GetAll();
-
+     
         HomeVM model = new()
         {
             Categories = categories,

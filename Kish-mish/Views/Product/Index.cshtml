@@ -23,15 +23,15 @@
                     <div class="left-side">
                         <div class="row">
                             <div class="col-12 col-sm-2">
-                                <div class="row">
+                                <div class="row img-selection">
                                     <div class="col-3 col-sm-12">
 
-                                        <div class="product-image first active-image">
+                                        <div class="product-image selected">
                                             <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" alt="">
                                         </div>
                                     </div>
                                     <div class="col-3 col-sm-12">
-                                        <div class="product-image second">
+                                        <div class="product-image">
                                             <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>!m.IsMain).Image" alt="">
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-12 col-sm-10">
                                 <div class="preview-image first-prev active-preview-image">
-                                    <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" alt="">
+                                    <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" alt="" class="display-img">
                                 </div>
 
                             </div>
@@ -61,14 +61,6 @@
                             <span>@Model.Product.Price ₼<span>
 </div>
 
-                        <div class="actions">
-                            <div class="row">
-
-                                <div class="col-12">
-                                    <a  data-id="@Model.Product.Id" style="background-color: black;" class="add-to-product">Səbətə əlavə et</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.Services;
 using Service.Services.Interfaces;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -63,8 +64,11 @@ namespace Kish_mish.Areas.Admin.Controllers
                 return View();
             }
 
+     
 
-            [HttpPost]
+
+
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> AddRole(AddRoleVM request)
             {

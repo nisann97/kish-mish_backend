@@ -9,8 +9,8 @@ $(function () {
             type: 'POST',
             success: function (response) {
                 $(".product-count").text(response.count);
-                $(".total-price").text(`$${response.totalPrice}`)
-                productTotal.html(`${response.productTotalPrice} $`)
+                $(".total-price").text(`${response.totalPrice} ₼`)
+                productTotal.html(`${response.productTotalPrice} ₼`)
             },
         });
     })
@@ -23,8 +23,8 @@ $(function () {
             type: 'POST',
             success: function (response) {
                 $(".product-count").text(response.count);
-                $(".total-price").text(`$${response.totalPrice}`)
-                productTotal.html(`${response.productTotalPrice} $`)
+                $(".total-price").text(`${response.totalPrice} ₼`)
+                productTotal.html(`${response.productTotalPrice} ₼`)
             },
         });
     })
@@ -40,7 +40,7 @@ $(function () {
             type: 'POST',
             success: function (response) {
                 $(".product-count").text(response.count);
-                $(".total-price").text(`$${response.totalPrice}`);
+                $(".total-price").text(`${response.totalPrice} ₼`);
                 if (response.count == 0) {
                     $(".basket-area").addClass("d-none");
                     $("#basket-area .container").html(`<div class=" text-center alert alert-warning cart-alert mt-4" role="alert">Məhsul əlavə edilməyib</div>`)
