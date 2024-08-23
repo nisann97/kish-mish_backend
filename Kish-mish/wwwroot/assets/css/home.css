@@ -663,9 +663,9 @@ border: 1px solid black !important;
     margin-top: 10px !important
   }
 }
-
-;
-
+#customer-review{
+    display: none;
+}
 
 
 
@@ -963,19 +963,12 @@ margin-bottom: 30px;
 
 @media (max-width: 550px) {
   #customer-review {
-    width: 100%;
-    position: relative;
-    min-height: 325px !important;
+ display: none;
 
   }
 
 
-  #customer-review .indicator{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10%;
-  }
+
 
 
   .row.testimonials{

@@ -19,6 +19,8 @@ namespace Repository.Data
         public DbSet<About> About { get; set; }
         public DbSet<CompanyValue> Values { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+
 
 
 
@@ -35,6 +37,7 @@ namespace Repository.Data
             modelBuilder.Entity<ProductImage>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<About>().HasQueryFilter(x => !x.SoftDeleted);
             modelBuilder.Entity<CompanyValue>().HasQueryFilter(x => !x.SoftDeleted);
+            modelBuilder.Entity<Blog>().HasQueryFilter(x => !x.SoftDeleted);
 
 
             modelBuilder.Entity<Setting>()
@@ -111,8 +114,8 @@ namespace Repository.Data
           CategoryId = 3
       },
       new Product
-      { 
-            Id = 2,
+      {
+          Id = 2,
           Name = "BITTER ŞOKOLADLI DUBLE LOKUM",
           Price = 9.40M,
           Description = "",
@@ -235,7 +238,7 @@ namespace Repository.Data
                      IsMain = true,
                      ProductId = 8
                  },
-                
+
                     new ProductImage
                     {
                         Id = 10,
@@ -308,14 +311,14 @@ namespace Repository.Data
      new CompanyValue
      {
          Id = 1,
-         Title= "Vizyonumuz",
+         Title = "Vizyonumuz",
          Description = "Çay üçün möhtəşəm ləzzətləri bir araya topladıq",
          Image = "instagram4.jpeg"
      },
      new CompanyValue
 
      {
-                Id = 2,
+         Id = 2,
          Title = "Missiyamız",
          Description = "Həm göz zövqünüzə, həm də damaq dadınıza xitab edən mükəmməl çərəzlər.",
          Image = "instagram10.jpeg"
@@ -330,11 +333,50 @@ namespace Repository.Data
         }
      );
 
+
+            modelBuilder.Entity<Blog>()
+                                   .HasData(
+                      new Blog
+                      {
+                          Id = 1,
+                          Title = "Qurudulmuş ananasın faydaları",
+                          Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
+                          Image = "ananas-blog.jpeg"
+                      },
+
+                          new Blog
+                          {
+                              Id = 2,
+                              Title = "Darçınlı alma qurusu",
+                              Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
+                              Image = "alma-blog.jpeg"
+                          },
+
+                       new Blog
+                       {
+                           Id = 3,
+                           Title = "Magnolia",
+                           Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
+                           Image = "instagram11.jpeg"
+                       },
+                        new Blog
+                        {
+                            Id = 4,
+                            Title = "Lokumlar",
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
+                            Image = "instagram10.jpeg"
+                        },
+                          new Blog
+                          {
+                              Id = 5,
+                              Title = "Çərəzlər",
+                              Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
+                              Image = "instagram1.jpeg"
+                          });
+
         }
-
     }
-}  
-
+}
        
 
        

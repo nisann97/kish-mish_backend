@@ -1,12 +1,4 @@
-//search
-
-var searchBox = $(".box");
-$('.icon-search, .icon-close').on("click", function () {
-    searchBox.toggleClass("open");
-
-})
-
-$(function () {
+﻿$(function () {
     $(document).on('click', '.add-product-basket', function (e) {
         e.preventDefault();
         let id = parseInt($(this).attr("data-id"));
@@ -58,4 +50,10 @@ $(function () {
         });
     })
 })
+//search
 
+var searchBox = $(".box");
+$('.icon-search, .icon-close').on("click", function () {
+    searchBox.toggleClass("open");
+
+})

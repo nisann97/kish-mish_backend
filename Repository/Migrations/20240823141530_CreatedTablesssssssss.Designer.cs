@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.Data;
 
@@ -11,9 +12,10 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240823141530_CreatedTablesssssssss")]
+    partial class CreatedTablesssssssss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,76 +158,6 @@ namespace Repository.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Baskets");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Blog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("SoftDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blogs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
-                            Image = "ananas-blog.jpeg",
-                            SoftDeleted = false,
-                            Title = "Qurudulmuş ananasın faydaları"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
-                            Image = "alma-blog.jpeg",
-                            SoftDeleted = false,
-                            Title = "Darçınlı alma qurusu"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
-                            Image = "instagram11.jpeg",
-                            SoftDeleted = false,
-                            Title = "Magnolia"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
-                            Image = "instagram10.jpeg",
-                            SoftDeleted = false,
-                            Title = "Lokumlar"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam consectetur sed neque magni illum numquam aliquam provident tempora reiciendis? Repellendus dolorem id provident quidem fugiat velit officia. Quisquam, assumenda. ",
-                            Image = "instagram1.jpeg",
-                            SoftDeleted = false,
-                            Title = "Çərəzlər"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Category", b =>

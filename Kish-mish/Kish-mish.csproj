@@ -35,6 +35,9 @@
     <None Remove="Areas\Admin\Views\Values\" />
     <None Remove="ViewModels\Products\" />
     <None Remove="Views\Product\" />
+    <None Remove="ViewModels\Blogs\" />
+    <None Remove="Areas\Admin\ViewModels\Blog\" />
+    <None Remove="Areas\Admin\Views\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -62,6 +65,9 @@
     <Folder Include="Areas\Admin\Views\Values\" />
     <Folder Include="ViewModels\Products\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="ViewModels\Blogs\" />
+    <Folder Include="Areas\Admin\ViewModels\Blog\" />
+    <Folder Include="Areas\Admin\Views\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">

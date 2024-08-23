@@ -1,0 +1,50 @@
+﻿@model BlogEditVM
+
+
+
+@section css {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-success">
+            <strong>Edit product</strong>
+        </div>
+        <div class="card-body card-block">
+            <form asp-action="Edit" method="post" class="" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input asp-for="Title" class="form-control mb-4" placeholder="Title...">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+
+                    <label>Description</label>
+                    <input asp-for="Description" class="form-control mb-4" placeholder="Description...">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+
+                    <label> Image</label>
+                    <div class="images">
+                        <img src="~/assets/images/@Model.Image" style="witdh: 100px;">
+
+
+                    </div>
+
+                    <label class=" form-control-label">Upload slider image</label>
+                    <input asp-for="NewImage" class="form-control  mb-2">
+                    <span class="text-danger" asp-validation-for="NewImage"></span>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" asp-controller="Blog" class="btn btn-light">Cancel</a>
+
+            </form>
+        </div>
+        <div>
+
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+

@@ -26,7 +26,7 @@ namespace Kish_mish.Controllers
 
 
         // GET: /<controller>/
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var about = await _aboutService.GetAll();
             var values = await _valuesService.GetAll();

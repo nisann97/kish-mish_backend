@@ -47,7 +47,8 @@ builder.Services.AddScoped<IAboutService, AboutService>();
 builder.Services.AddScoped<IAboutRepository, AboutRepository>();
 builder.Services.AddScoped<IValuesService, ValuesService>();
 builder.Services.AddScoped<IValuesRepository, ValuesRepository>();
-
+builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

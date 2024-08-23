@@ -39,8 +39,6 @@
 
                                 </div>
                                 <a asp-controller="Blog" asp-action="Index" class="nav-item nav-link">Bloq</a>
-
-                                <a asp-controller="Contact" asp-action="Index" class="nav-item nav-link">Əlaqə</a>
                             </div>
                         </div>
                         <div class="col-6 col-lg-6 col-sm-6">
@@ -101,9 +99,9 @@
             <div class="icon-close">
                 <i class="fa fa-times"></i>
             </div>
-            <form action="" class="form-area">
-                <input type="text" placeholder="Açar sözü daxil edin">
-                <button>Axtarın</button>
+            <form method="get" asp-controller="Shop" asp-action="Index" enctype="multipart/form-data" class="form-area position-relative mx-auto">
+                <input type="text" name="searchText" placeholder="Açar sözü daxil edin">
+                <button  type="submit" class="search-btn">Axtarın</button>
             </form>
         </div>
     </section>

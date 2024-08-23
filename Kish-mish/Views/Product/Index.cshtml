@@ -1,176 +1,80 @@
 ﻿@model ProductDetailPageVM
-
-@section js {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="~/assets/js/product.js"></script>
-}
+@*@section js {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="~/assets/js/product.js"></script>
+    }*@
 
 @section css {
-
-    <script src="~/assets/css/product.css"></script>
-
+    <link rel="stylesheet" href="~/assets/css/product-detail.css" />
 }
 
+<main>
 
+    <section id="back-to-top-btn">
+        <a id="button">
+            <img src="~/assets/icons/chevron-up.svg" alt="">
+        </a>
+    </section>
 
-<div class="container-fluid py-5 mt-5">
-    <div class="container py-5">
-        <div class="row g-4 mb-5">
-            <div class="col-lg-8 col-xl-9">
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="border rounded">
-                            <a href="#">
-                                <img src="~/img/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid rounded" alt="Image">
-                            </a>
-                        </div>
-                        @if (Model.Product.ProductImages.Where(m => !m.IsMain).ToList().Count != 0)
-                        {
-                            <div class="d-flex justify-content-center mt-4 mb-3">
-                                @foreach (var item in Model.Product.ProductImages.Where(m => !m.IsMain))
-                                {
-                                    <a data-fslightbox="mygalley" class="border mx-1 rounded-2" data-type="image" class="item-thumb">
-                                        <img width="90" height="90" class="rounded-2" src="~/img/@item.Image" />
-                                    </a>
-                                }
-                            </div>
-                        }
-                    </div>
-                    <div class="col-lg-6">
-                        <h4 class="fw-bold mb-3">@Model.Product.Name</h4>
-                        <p class="mb-3">Category: @Model.Product.Category</p>
-                        <h5 class="fw-bold mb-3">@Model.Product.Price $</h5>
-                     
-                        <p class="mb-4">@Model.Product.Description</p>
-                        <div class="input-group quantity mb-5" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-minus rounded-circle bg-light border">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm text-center border-0 count" value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <a href="#" data-id="@Model.Product.Id" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary add-product-basket"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                    </div>
-                    <div class="col-lg-12">
-                        <nav>
-                            <div class="nav nav-tabs mb-3">
-                                <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
-                                        id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
-                                        aria-controls="nav-about" aria-selected="true">
-                                    Description
-                                </button>
-                                <button class="nav-link border-white border-bottom-0" type="button" role="tab"
-                                        id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
-                                        aria-controls="nav-mission" aria-selected="false">
-                                    Reviews
-                                </button>
-                            </div>
-                        </nav>
-                        <div class="tab-content mb-5">
-                            <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                                <p>
-                                    @Model.Product.Description
-                                </p>
-                             
-                            </div>
-                           
-                            <div class="tab-pane" id="nav-vision" role="tabpanel">
-                                <p class="text-dark">
-                                    Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                                    amet diam et eos labore. 3
-                                </p>
-                                <p class="mb-0">
-                                    Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore.
-                                    Clita erat ipsum et lorem et sit
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3">
-                <div class="row g-4 fruite">
-                    <div class="col-lg-12">
-                        <form method="get" asp-controller="Shop" asp-action="Index" enctype="multipart/form-data" class="input-group w-100 mx-auto d-flex">
-                            <input class="form-control p-3" name="searchText" placeholder="Search...">
-                            <button type="submit" class="input-group-text p-3"><i class="fa fa-search"></i></button>
-                        </form>
-                        <div class="mt-3 mb-4">
-                            <h4>Categories</h4>
-                            <ul class="list-unstyled fruite-categorie">
-                                @foreach (var item in Model.Categories)
-                                {
-                                    <li>
-                                        <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>@item.Name</a>
-                                            <span>(@item.Products.Count)</span>
+    <section id="product-detail-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-xl-7">
+                    <div class="left-side">
+                        <div class="row">
+                            <div class="col-12 col-sm-2">
+                                <div class="row">
+                                    <div class="col-3 col-sm-12">
+
+                                        <div class="product-image first active-image">
+                                            <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" alt="">
                                         </div>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <h4 class="mb-4">Featured products</h4>
-                        @foreach (var item in Model.Products.Skip(3).Take(6))
-                        {
-                            <div class="d-flex align-items-center justify-content-start">
-                                <div class="rounded" style="width: 100px; height: 100px;">
-                                    <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid rounded" alt="Image">
-                                </div>
-                                <div class="px-3">
-                                    <h6 class="mb-2">@item.Name</h6>
-                                   
-                                    <div class="d-flex mb-2">
-                                        <h5 class="fw-bold me-2">@item.Price ₼</h5>
                                     </div>
+                                    <div class="col-3 col-sm-12">
+                                        <div class="product-image second">
+                                            <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>!m.IsMain).Image" alt="">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                        }
-                        <div class="d-flex justify-content-center my-4">
-                            <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">View More</a>
+                            <div class="col-12 col-sm-10">
+                                <div class="preview-image first-prev active-preview-image">
+                                    <img src="~/assets/images/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image" alt="">
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="position-relative">
-                            <img src="~/img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
-                            <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
-                                <h3 class="text-secondary fw-bold">Fresh <br> Fruits <br> Banner</h3>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-5">
+                    <div class="right-side">
+                        <div class="name">
+                            <span>@Model.Product.Category</span>
+                            <h1>@Model.Product.Name</h1>
+                        </div>
+
+                        <div class="detail">
+                            <p>@Model.Product.Description</p>
+                        </div>
+                        <div class="price">
+                            <span>@Model.Product.Price ₼<span>
+</div>
+
+                        <div class="actions">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <a  data-id="@Model.Product.Id" style="background-color: black;" class="add-to-product">Səbətə əlavə et</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <h1 class="fw-bold mb-0">Related products</h1>
-        <div class="vesitable">
-            <div class="owl-carousel vegetable-carousel justify-content-center">
-                @foreach (var item in Model.Products)
-                {
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>@item.Name</h4>
-                            <p>@item.Description</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">₼@item.Price / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
+
         </div>
-    </div>
-</div>
- Single Product End 
+    </section>
+
+</main>

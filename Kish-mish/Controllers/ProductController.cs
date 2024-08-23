@@ -69,17 +69,7 @@ namespace Kish_mish.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddComment(string userId, int productId, string comment)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Problem();
-            }
-
-            return Ok();
-        }
-
+      
 
         [HttpPost]
         public async Task<IActionResult> AddProductToBasket(int? id, int count)

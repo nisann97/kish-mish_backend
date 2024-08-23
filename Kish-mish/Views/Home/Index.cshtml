@@ -103,7 +103,7 @@
 
 
                         <div class="show-btn mt-5">
-                            <button>Daha çox</button>
+                            <button asp-controller="Shop" asp-action="Index">Daha çox</button>
 
                         </div>
                     </div>
@@ -114,6 +114,28 @@
     </section>
 
     <!-- PRODUCTS END -->
+    <!-- About START -->
+    @foreach (var item in Model.About)
+    {
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content">
+                            <h2>Kish-Mish hekayəmiz</h2>
+                            <div class="content-text">
+                                <p>
+                                    @item.Description
+
+                                </p>
+                                <a class="about-btn" href="">Hekayəmizi oxu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
     <!-- Customer Review START -->
     <section id="customer-review">
         <div class="container">
@@ -189,31 +211,6 @@
         </div>
     </section>
 
-
-
-
-    <!-- About START -->
-    @foreach (var item in Model.About)
-    {
-        <section id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="content">
-                            <h2>Kish-Mish hekayəmiz</h2>
-                            <div class="content-text">
-                                <p>
-                                    @item.Description
-
-                                </p>
-                                <a class="about-btn" href="">Hekayəmizi oxu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
 
 
     <!-- About END -->

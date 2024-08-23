@@ -55,14 +55,7 @@ public class HomeController : Controller
             Products = products,
             Sliders = sliders,
             About = about
-            //Features = features,
-            //Ads = ads,
-            //Vegetables = vegetables,
-
-            //Banner = banners.FirstOrDefault(),
-            //BestSellers = bestSellers,
-            //Comments = comments,
-            //Statistics = statistics,
+          
         };
 
         return View(model);
